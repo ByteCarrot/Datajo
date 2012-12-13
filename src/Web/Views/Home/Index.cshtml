@@ -1,0 +1,184 @@
+﻿@using ByteCarrot.Datajo
+@using ByteCarrot.Datajo.Web.Controllers
+@model dynamic
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Datajo</title>
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/style.less" />
+    <script type="text/javascript" src="~/Scripts/jquery-1.8.2.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-ui-1.8.23.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/datajo.js"></script>
+    <style type="text/css">
+        body {
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+    </style>
+</head>
+<body data-jo-config='{"activityIndicator":"#loader"}'>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="#">Datajo</a>
+                <div id="loader">
+                    <img src="~/Content/images/activity-indicator.gif" alt=""/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <section>
+            <a id="action-show"></a>
+            <h2>Action: SHOW</h2>
+            <div class="example-box">
+                <div id="div1" style="display: none"></div>
+            </div>
+            <div class="btn-group btn-group-vertical" style="margin-top: 20px;">
+                <a href="#" class="btn" data-jo='@Html.Datajo(x => x.Show("#div1"))'>@@Html.Datajo(x => x.Show("#div1"))</a>
+                <a href="#" class="btn" data-jo='@Html.Datajo(x => x.Show("#div1", 3000, "easeOutElastic"))'>@@Html.Datajo(x => x.Show("#div1", 3000, "easeOutElastic"))</a>
+                <a href="#" class="btn" data-jo='{"action":"show","target":"#div1"}'>data-jo='{"action":"show","target":"#div1"}'</a>
+                <a href="#" class="btn" data-jo='{"action":"show","target":"#div1","duration":1000}'>data-jo='{"action":"show","target":"#div1","duration":1000}'</a>
+                <a href="#" class="btn" data-jo='{"action":"show","target":"#div1","easing":"swing"}'>data-jo='{"action":"show","target":"#div1","easing":"swing"}'</a>
+                <a href="#" class="btn" data-jo='{"action":"show","target":"#div1","easing":"easeOutElastic"}'>data-jo='{"action":"show","target":"#div1","easing":"easeOutElastic"}'</a>
+                <a href="#" class="btn" data-jo='{"action":"show","target":"#div1","duration":2000,"easing":"easeInBounce"}'>data-jo='{"action":"show","target":"#div1","duration":2000,"easing":"easeInBounce"}'</a>
+                <a href="#" class="btn btn-info" data-jo='{"action":"hide","target":"#div1"}'>Reset</a>
+            </div>
+        </section>
+
+        <section id="action-hide">
+            <h2>Action: HIDE</h2>
+            <div class="example-box">
+                <div id="div2"></div>
+            </div>
+            <div class="btn-group btn-group-vertical" style="margin-top: 20px;">
+                <a href="#" class="btn" data-jo='@Html.Datajo(x => x.Hide("#div2"))'>@@Html.Datajo(x => x.Hide("#div2"))</a>
+                <a href="#" class="btn" data-jo='@Html.Datajo(x => x.Hide("#div2", 3000, "easeInBounce"))'>@@Html.Datajo(x => x.Hide("#div2", 3000, "easeInBounce"))</a>
+                <a href="#" class="btn" data-jo='{"action":"hide","target":"#div2"}'>data-jo='{"action":"hide","target":"#div2"}'</a>
+                <a href="#" class="btn" data-jo='{"action":"hide","target":"#div2","duration":1000}'>data-jo='{"action":"hide","target":"#div2","duration":1000}'</a>
+                <a href="#" class="btn" data-jo='{"action":"hide","target":"#div2","easing":"swing"}'>data-jo='{"action":"hide","target":"#div2","easing":"swing"}'</a>
+                <a href="#" class="btn" data-jo='{"action":"hide","target":"#div2","easing":"easeOutElastic"}'>data-jo='{"action":"hide","target":"#div2","easing":"easeOutElastic"}'</a>
+                <a href="#" class="btn" data-jo='{"action":"hide","target":"#div2","duration":2000,"easing":"easeInBounce"}'>data-jo='{"action":"hide","target":"#div2","duration":2000,"easing":"easeInBounce"}'</a>
+                <a href="#" class="btn btn-info" data-jo='{"action":"show","target":"#div2"}'>Reset</a>
+            </div>
+        </section>
+        
+        
+
+        <section id="action-multiple">
+            <h2>One click, multiple actions</h2>
+            <div class="example-box">
+                <div id="div3"></div>
+                <div id="div4" style="display: none"></div>
+            </div>
+            <div class="btn-group btn-group-vertical" style="margin-top: 20px;">
+                <a href="#" class="btn" data-jo='@Html.Datajo(x => x.Hide("#div3", 2000).Show("#div4", 2000))'>@@Html.Datajo(x => x.Hide("#div3", 2000).Show("#div4", 2000))</a>
+                <a href="#" class="btn" data-jo='[{"action":"hide","target":"#div3","duration":2000},{"action":"show","target":"#div4","duration":2000}]'>data-jo='[{"action":"hide","target":"#div3","duration":2000},{"action":"show","target":"#div4","duration":2000}]'</a>
+                <a href="#" class="btn btn-info" data-jo='[{"action":"show","target":"#div3"},{"action":"hide","target":"#div4"}]'>Reset</a>
+            </div>
+        </section>
+
+        <section>
+            <h2>Action: GET</h2>
+            <div id="div5" class="example-box-get"></div>
+            <div class="btn-group btn-group-vertical" style="margin-top: 20px;">
+                <a href="#" class="btn" data-jo='@Html.Datajo(x => x.Get("#div5", "/home/getexample"))'>@@Html.Datajo(x => x.Get("#div5", "/home/getexample"))</a>
+                <a href="#" class="btn" data-jo='{"action":"get","target":"#div5","url":"/home/getexample"}'>data-jo='{"action":"get","target":"#div5","url":"/home/getexample"}'</a>
+                <a href="#" class="btn" data-jo='{"action":"get","target":"#div5","url":"/home/getexample","inject":"afterContent"}'>data-jo='{"action":"get","target":"#div5","url":"/home/getexample","inject":"afterContent"}'</a>
+                <a href="#" class="btn" data-jo='{"action":"get","target":"#div5","url":"/home/getexample","inject":"beforeContent"}'>data-jo='{"action":"get","target":"#div5","url":"/home/getexample","inject":"beforeContent"}'</a>
+                <a href="#" class="btn" data-jo='{"action":"get","target":"#div5","url":"/home/getexample","inject":"replaceContent"}'>data-jo='{"action":"get","target":"#div5","url":"/home/getexample","inject":"replaceContent"}'</a>
+            </div>
+            <div class="example-box-get" style="margin-top: 20px;" id="div6-container">
+                <div id="div6">Target</div>
+            </div>
+            <div class="btn-group btn-group-vertical" style="margin-top: 20px;">
+                <a href="#" class="btn" data-jo='{"action":"get","target":"#div6","url":"/home/getexample","inject":"afterTarget"}'>data-jo='{"action":"get","target":"#div6","url":"/home/getexample","inject":"afterTarget"}'</a>
+                <a href="#" class="btn" data-jo='{"action":"get","target":"#div6","url":"/home/getexample","inject":"beforeTarget"}'>data-jo='{"action":"get","target":"#div6","url":"/home/getexample","inject":"beforeTarget"}'</a>
+                <a href="#" class="btn" data-jo='{"action":"get","target":"#div6","url":"/home/getexample","inject":"replaceTarget"}'>data-jo='{"action":"get","target":"#div6","url":"/home/getexample","inject":"replaceTarget"}'</a>
+                <a href="#" class="btn btn-info" id="div6-reset">Reset</a>
+            </div>
+            <script type="text/javascript">
+                $(function () {
+                    $('#div6-reset').click(function (event) {
+                        event.preventDefault();
+                        $('#div6-container').html('<div id="div6">Target</div>');
+                    });
+                });
+            </script>
+        </section>
+
+        <section>
+            <h3>Action: POST</h3>
+            <fieldset>
+                <legend>Simplest example</legend>
+                <form id="form1">
+                    <div class="row">
+                        <div class="span12">
+                            <input name="TextField" type="text" value="" class="input-xlarge" placeholder="Add some text and click button below" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span12">
+                            <button type="button" data-jo='{"action":"post","target":"#div7","url":"/home/postexample","form":"#form1"}'>data-jo='{"action":"post","target":"#div7","url":"/home/postexample","form":"#form1"}'</button>
+                        </div>
+                    </div>
+                </form>
+                <div id="div7" class="example-box-get"></div>
+            </fieldset>
+            <fieldset>
+                <legend>Replace</legend>
+                @Html.Partial("PostExample2", new PostExample2ViewModel())
+            </fieldset>
+            <fieldset>
+                <legend>Confirmations</legend>
+                <form id="form3">
+                    <div class="row">
+                        <div class="span12">
+                            <input name="TextField" type="text" value="" class="input-xlarge" placeholder="Add some text and click button below" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span12">
+                            <div class="btn-group btn-group-vertical" style="margin-top: 20px;">
+                                <button class="btn" type="button" data-jo='@Html.Datajo(x => x.Post("#div8", "/home/postexample", "#form3", confirm: "Are you sure?"))'>@@Html.Datajo(x => x.Post("#div8","/home/postexample","#form3",confirm:"Are you sure?"))</button>
+                                <button class="btn" type="button" data-jo='{"action":"post","target":"#div8","url":"/home/postexample","form":"#form3","confirm":"Are you sure?"}'>data-jo='{"action":"post","target":"#div8","url":"/home/postexample","form":"#form3","confirm":"Are you sure?"}'</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div id="div8" class="example-box-get"></div>
+            </fieldset>
+        </section>
+        
+        <section>
+            <h2>Special targets: _self, _parent</h2>
+            <div class="example-box-get" id="div9" style="margin-bottom: 20px;">
+                <button class="btn" data-jo='{"action":"hide","target":"_self"}'>Hide me! data-jo='{"action":"hide","target":"_self"}'</button>
+                <button class="btn" data-jo='{"action":"hide","target":"_parent"}'>Hide my parent! data-jo='{"action":"hide","target":"_parent"}'</button>
+            </div>
+            <a href="#" class="btn btn-info" data-jo='[{"action":"show","target":"#div9"},{"action":"show","target":"#div9 button"}]'>Reset</a>
+        </section>
+        
+        <section>
+            <h2>Ajax errors</h2>
+            <button class="btn" type="button" data-jo='{"action":"post","target":"#div9","url":"/home/notexistingurl","form":"#form3"}'>Send request to a not existing URL</button>
+        </section>
+        
+        <section>
+            <h2>Activity indicator</h2>
+            <div id="div10" class="example-box-get"></div>
+            <div class="btn-group btn-group-vertical" style="margin-top: 20px;">
+                <a href="#" class="btn" data-jo='@Html.Datajo(x => x.Get("#div10", "/home/longrunningexample"))'></a>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
