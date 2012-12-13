@@ -2,11 +2,11 @@
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("Datajo")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("jQuery based, unobtrusive JavaScript actions")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("ByteCarrot")]
 [assembly: AssemblyProduct("Datajo")]
-[assembly: AssemblyCopyright("Copyright © ByteCarrot 2012")]
+[assembly: AssemblyCopyright("Copyright © ByteCarrot 2012 - 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]

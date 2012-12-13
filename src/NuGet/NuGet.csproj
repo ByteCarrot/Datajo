@@ -55,14 +55,17 @@
     <None Include="tools\uninstall.ps1" />
     <None Include="NuGet.exe" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="content\Scripts\datajo.js" />
     <Content Include="content\Scripts\datajo.min.js" />
     <Content Include="lib\40\ByteCarrot.Datajo.dll" />
     <Content Include="lib\45\ByteCarrot.Datajo.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Datajo\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
