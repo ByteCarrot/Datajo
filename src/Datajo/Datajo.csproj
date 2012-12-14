@@ -21,6 +21,7 @@
     <UpgradeBackupLocation />
   </PropertyGroup>
   <ItemGroup>
+    <JasmineCompile Include="EventName.spec.ts" />
     <Content Include="Infrastructure\jasmine.d.ts" />
     <Content Include="Infrastructure\specs.js" />
     <Content Include="Library\datajo.js" />
