@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
 
-namespace ByteCarrot.Datajo
+namespace ByteCarrot.Datajo.Mvc
 {
     public static class HtmlHelperExtensions
     {

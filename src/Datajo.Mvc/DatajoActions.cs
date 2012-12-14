@@ -1,7 +1,7 @@
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace ByteCarrot.Datajo
+namespace ByteCarrot.Datajo.Mvc
 {
     public class DatajoActions
     {
