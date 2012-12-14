@@ -22,85 +22,25 @@
   </PropertyGroup>
   <ItemGroup>
     <TypeScriptCompile Include="EventName.ts" />
-    <Content Include="EventName.js">
-      <DependentUpon>EventName.ts</DependentUpon>
-    </Content>
     <TypeScriptCompile Include="Runner.ts" />
-    <Content Include="Runner.js">
-      <DependentUpon>Runner.ts</DependentUpon>
-    </Content>
-    <Content Include="Underscore.js">
-      <DependentUpon>Underscore.ts</DependentUpon>
-    </Content>
     <TypeScriptCompile Include="Underscore.ts" />
     <TypeScriptCompile Include="HtmlInjection.ts" />
     <TypeScriptCompile Include="AjaxAction.ts" />
     <TypeScriptCompile Include="ActivityIndicator.ts" />
-    <Content Include="ActivityIndicator.js">
-      <DependentUpon>ActivityIndicator.ts</DependentUpon>
-    </Content>
-    <Content Include="AjaxAction.js">
-      <DependentUpon>AjaxAction.ts</DependentUpon>
-    </Content>
     <TypeScriptCompile Include="GetAction.ts" />
     <TypeScriptCompile Include="Configuration.ts" />
-    <Content Include="Configuration.js">
-      <DependentUpon>Configuration.ts</DependentUpon>
-    </Content>
-    <Content Include="GetAction.js">
-      <DependentUpon>GetAction.ts</DependentUpon>
-    </Content>
     <TypeScriptCompile Include="GetActionHandler.ts" />
-    <Content Include="GetActionHandler.js">
-      <DependentUpon>GetActionHandler.ts</DependentUpon>
-    </Content>
-    <Content Include="HtmlInjection.js">
-      <DependentUpon>HtmlInjection.ts</DependentUpon>
-    </Content>
     <TypeScriptCompile Include="PostAction.ts" />
-    <Content Include="PostAction.js">
-      <DependentUpon>PostAction.ts</DependentUpon>
-    </Content>
     <TypeScriptCompile Include="PostActionHandler.ts" />
-    <Content Include="PostActionHandler.js">
-      <DependentUpon>PostActionHandler.ts</DependentUpon>
-    </Content>
     <TypeScriptCompile Include="Repository.ts" />
-    <Content Include="Repository.js">
-      <DependentUpon>Repository.ts</DependentUpon>
-    </Content>
-    <Content Include="TargetResolver.js">
-      <DependentUpon>TargetResolver.ts</DependentUpon>
-    </Content>
     <TypeScriptCompile Include="TargetResolver.ts" />
     <TypeScriptCompile Include="HideAction.ts" />
-    <Content Include="HideAction.js">
-      <DependentUpon>HideAction.ts</DependentUpon>
-    </Content>
     <TypeScriptCompile Include="HideActionHandler.ts" />
-    <Content Include="HideActionHandler.js">
-      <DependentUpon>HideActionHandler.ts</DependentUpon>
-    </Content>
-    <Content Include="ShowAction.js">
-      <DependentUpon>ShowAction.ts</DependentUpon>
-    </Content>
-    <Content Include="ShowActionHandler.js">
-      <DependentUpon>ShowActionHandler.ts</DependentUpon>
-    </Content>
     <TypeScriptCompile Include="ShowActionHandler.ts" />
     <TypeScriptCompile Include="ShowAction.ts" />
     <TypeScriptCompile Include="Exception.ts" />
     <TypeScriptCompile Include="Action.ts" />
-    <Content Include="Action.js">
-      <DependentUpon>Action.ts</DependentUpon>
-    </Content>
     <TypeScriptCompile Include="ActionHandler.ts" />
-    <Content Include="ActionHandler.js">
-      <DependentUpon>ActionHandler.ts</DependentUpon>
-    </Content>
-    <Content Include="Exception.js">
-      <DependentUpon>Exception.ts</DependentUpon>
-    </Content>
     <Content Include="Infrastructure\jquery-1.8.3.js" />
     <Content Include="Infrastructure\jquery-ui-1.9.2.js" />
     <Content Include="Infrastructure\jquery.d.ts" />
@@ -108,6 +48,9 @@
     <Content Include="Jasmine\jasmine.css" />
     <Content Include="Jasmine\jasmine.html" />
     <Content Include="Jasmine\jasmine.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Library\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
