@@ -2,7 +2,7 @@ var __extends = this.__extends || function (d, b) {
     function __() { this.constructor = d; }
     __.prototype = b.prototype;
     d.prototype = new __();
-}
+};
 var Datajo;
 (function (Datajo) {
     var Exception = (function () {
@@ -281,11 +281,23 @@ var Datajo;
     var Events = (function () {
         function Events() { }
         Events.events = {
-            click: true,
-            load: true,
-            change: true,
-            hover: true
+            click: function (e) {
+                return true;
+            },
+            load: function (e) {
+                return true;
+            },
+            submit: function (e) {
+                return e.tagName === 'form';
+            }
         };
+        Events.nameOrDefault = function nameOrDefault(data, element) {
+            var event = this.getEvent(data);
+            if(this.isSupported(event, element)) {
+                return event;
+            }
+            throw new Exception('Event "' + event + '" is not supported by "' + element.tagName + '" tag.');
+        }
         Events.getEvent = function getEvent(data) {
             if(data.event === undefined || data.event === null || !_.isString(data.event)) {
                 return 'click';
@@ -298,6 +310,12 @@ var Datajo;
                 throw new Exception('Event ' + event + ' is not supported');
             }
             return event;
+        }
+        Events.isSupported = function isSupported(event, element) {
+            if(this.events[event] === undefined) {
+                return false;
+            }
+            return this.events[event](element);
         }
         return Events;
     })();    
@@ -400,4 +418,3 @@ var Datajo;
         var runner = new Runner();
     });
 })(Datajo || (Datajo = {}));
-

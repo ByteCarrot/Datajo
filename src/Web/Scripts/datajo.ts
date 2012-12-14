@@ -233,8 +233,19 @@ module Datajo {
     }
 
     class Events {
-        private static events = { click: true, load: true, change: true, hover: true };
-        public static getEvent(data: any): string {
+        private static events = { 
+            click:  (e: Element) => { return true },
+            load:   (e: Element) => { return true } ,
+            submit: (e: Element) => { return e.tagName === 'form' },
+        };
+        public static nameOrDefault(data: any, element: Element) {
+            var event = this.getEvent(data);
+            if (this.isSupported(event, element)) {
+                return event;
+            }
+            throw new Exception('Event "' + event + '" is not supported by "' + element.tagName + '" tag.');
+        }
+        private static getEvent(data: any): string {
             if (data.event === undefined || data.event === null || !_.isString(data.event)) {
                 return 'click';
             }
@@ -249,6 +260,13 @@ module Datajo {
             }
 
             return event;
+        };
+        private static isSupported(event: string, element: Element): bool {
+            if (this.events[event] === undefined) {
+                return false;
+            }
+
+            return this.events[event](element);
         }
     }
 
