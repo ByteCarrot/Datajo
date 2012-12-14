@@ -1,0 +1,1 @@
+{"version":3,"file":"Exception.js","sources":["Exception.ts"],"names":["Exception","Exception.constructor","Exception.toString"],"mappings":"AAAA;IAEIA,SAFEA,SAASA,CAECA,OAAeA;QACvBC,IAAIA,CAACA,OAAOA,GAAGA,OAAOA;IAC1BA,CAACA;IACDD,+BAAAA;QACIE,OAAOA,oBAAoBA,GAAGA,IAAIA,CAACA,OAAOA,CAACA;IAC/CA,CAACA;IACLF;AAACA,CAAAA,IAAA;AAAA"}
