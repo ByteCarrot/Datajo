@@ -225,7 +225,7 @@ var Datajo;
         Repository.prototype.findNotConfiguredElements = function () {
             var result = new Array();
             $('[data-jo]').each(function (i, item) {
-                if((item).datajoEnabled === undefined) {
+                if((item).datajo === undefined) {
                     result.push(item);
                 }
             });
@@ -265,6 +265,42 @@ var Datajo;
         };
         return ActivityIndicator;
     })();    
+    var _ = (function () {
+        function _() { }
+        _.isArray = function isArray(data) {
+            return Object.prototype.toString.call(data) === '[object Array]';
+        }
+        _.isString = function isString(data) {
+            return toString.call(data) == '[object String]';
+        }
+        _.normalize = function normalize(data) {
+            return data.trim().toLowerCase();
+        }
+        return _;
+    })();    
+    var Events = (function () {
+        function Events() { }
+        Events.events = {
+            click: true,
+            load: true,
+            change: true,
+            hover: true
+        };
+        Events.getEvent = function getEvent(data) {
+            if(data.event === undefined || data.event === null || !_.isString(data.event)) {
+                return 'click';
+            }
+            var event = _.normalize(data.event);
+            if(event === '') {
+                return 'click';
+            }
+            if(this.events[event] === undefined) {
+                throw new Exception('Event ' + event + ' is not supported');
+            }
+            return event;
+        }
+        return Events;
+    })();    
     var Runner = (function () {
         function Runner() {
             var _this = this;
@@ -299,10 +335,12 @@ var Datajo;
             var elements = this.repo.findNotConfiguredElements();
             for(var i in elements) {
                 var element = elements[i];
-                $(element).click(function (event) {
-                    return _this.onclick(event);
-                });
-                element.datajoEnabled = true;
+                element.datajo = this.findData(element);
+                for(var event in element.datajo) {
+                    $(element).on(event, function (e) {
+                        return _this.onevent(e);
+                    });
+                }
             }
             ; ;
         };
@@ -319,25 +357,40 @@ var Datajo;
             }
             console.error('--- Datajo Ajax Error --- \n', 'Status:      ' + xhr.status + '\n' + 'Status Text: ' + xhr.statusText + '\n' + 'Response Text:\n' + xhr.responseText + '\n' + '------------------------');
         };
-        Runner.prototype.isArray = function (data) {
-            return Object.prototype.toString.call(data) === '[object Array]';
-        };
-        Runner.prototype.onclick = function (event) {
-            event.preventDefault();
-            var sender = event.target;
-            for(var i in sender.attributes) {
-                var attribute = sender.attributes[i];
+        Runner.prototype.findData = function (element) {
+            for(var i in element.attributes) {
+                var attribute = element.attributes[i];
                 if(attribute.name !== 'data-jo') {
                     continue;
                 }
-                var data = JSON.parse(attribute.value);
-                if(!this.isArray(data)) {
-                    (this.handlers[data.action]).execute(sender, data);
-                    continue;
+                var obj = JSON.parse(attribute.value);
+                var data = {
+                };
+                if(_.isArray(obj)) {
+                    for(var j in obj) {
+                        var event = Events.getEvent(obj[j]);
+                        if(data[event] === undefined) {
+                            data[event] = [];
+                        }
+                        data[event].push(obj[j]);
+                    }
+                } else {
+                    data[Events.getEvent(obj)] = [
+                        obj
+                    ];
                 }
-                for(var i in data) {
-                    (this.handlers[data[i].action]).execute(sender, data[i]);
-                }
+                return data;
+            }
+            return undefined;
+        };
+        Runner.prototype.onevent = function (event) {
+            event.preventDefault();
+            if(event.target.datajo === undefined) {
+                return;
+            }
+            var data = event.target.datajo[event.type];
+            for(var i in data) {
+                (this.handlers[data[i].action]).execute(event.target, data[i]);
             }
         };
         return Runner;

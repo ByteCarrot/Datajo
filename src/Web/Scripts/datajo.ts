@@ -183,7 +183,7 @@ module Datajo {
         public findNotConfiguredElements() : Element[] {
             var result = new Element[];
             $('[data-jo]').each((i, item) => {
-                if ((<any>item).datajoEnabled === undefined) {
+                if ((<any>item).datajo === undefined) {
                     result.push(item);
                 }
             });
@@ -218,9 +218,44 @@ module Datajo {
         }
     }
 
+    class _ {
+        public static isArray(data: any): bool {
+            return Object.prototype.toString.call(data) === '[object Array]';
+        }
+
+        public static isString(data: any): bool {
+            return toString.call(data) == '[object String]';
+        }
+
+        public static normalize(data: string): string {
+            return data.trim().toLowerCase();
+        }
+    }
+
+    class Events {
+        private static events = { click: true, load: true, change: true, hover: true };
+        public static getEvent(data: any): string {
+            if (data.event === undefined || data.event === null || !_.isString(data.event)) {
+                return 'click';
+            }
+
+            var event = _.normalize(data.event);
+            if (event === '') {
+                return 'click'
+            }
+
+            if (this.events[event] === undefined) {
+                throw new Exception('Event ' + event + ' is not supported');
+            }
+
+            return event;
+        }
+    }
+
     class Runner {
         private repo: Repository;
         private handlers: any;
+        private events: any;
         private activityIndicator: ActivityIndicator;
         constructor () {
             $(document).ajaxStart(() => this.onAjaxStart());
@@ -234,7 +269,6 @@ module Datajo {
                 'get': new GetActionHandler(),
                 'post': new PostActionHandler()
             };
-            
             this.activityIndicator = new ActivityIndicator(this.getConfiguration());
 
             this.update();
@@ -252,8 +286,10 @@ module Datajo {
             var elements = this.repo.findNotConfiguredElements();
             for (var i in elements) {
                 var element = elements[i];
-                $(element).click(event => this.onclick(event));
-                element.datajoEnabled = true;
+                element.datajo = this.findData(element);
+                for (var event in element.datajo) {
+                    $(element).on(event, e => this.onevent(e));
+                }
             };
         }
 
@@ -278,26 +314,39 @@ module Datajo {
                 '------------------------');
         }
 
-        private isArray(data: any): bool {
-            return Object.prototype.toString.call(data) === '[object Array]';
-        }
-
-        private onclick(event: JQueryEventObject) {
-            event.preventDefault();
-            var sender = <Element>event.target;
-            for (var i in sender.attributes) {
-                var attribute = sender.attributes[i];
+        private findData(element: Element) : any {
+            for (var i in element.attributes) {
+                var attribute = element.attributes[i];
                 if (attribute.name !== 'data-jo') {
                     continue;
                 }
-                var data = JSON.parse(attribute.value);
-                if (!this.isArray(data)) {
-                    (<ActionHandler>this.handlers[data.action]).execute(sender, data);
-                    continue;
+                var obj = JSON.parse(attribute.value);
+                var data = {};
+                if (_.isArray(obj)) {
+                    for (var j in obj) {
+                        var event = Events.getEvent(obj[j]);
+                        if (data[event] === undefined) {
+                            data[event] = [];
+                        }
+                        data[event].push(obj[j]);
+                    }
+                } else {
+                    data[Events.getEvent(obj)] = [obj];
                 }
-                for (var i in data) {
-                    (<ActionHandler>this.handlers[data[i].action]).execute(sender, data[i]);
-                }
+                return data;
+            }
+            return undefined;
+        }
+
+        private onevent(event: any) {
+            event.preventDefault();
+            if (event.target.datajo === undefined) {
+                return;
+            }
+
+            var data = event.target.datajo[event.type];
+            for (var i in data) {
+                (<ActionHandler>this.handlers[data[i].action]).execute(<Element>event.target, data[i]);
             }
         }
     };

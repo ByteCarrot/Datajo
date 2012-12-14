@@ -13,7 +13,8 @@
     <title>Datajo</title>
     <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
     <link rel="stylesheet" href="~/Content/style.less" />
-    <script type="text/javascript" src="~/Scripts/jquery-1.8.2.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-ui-1.9.2.min.js"></script>
     <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="~/Scripts/datajo.js"></script>
     <style type="text/css">
@@ -42,7 +43,9 @@
                 <div id="div1" style="display: none"></div>
             </div>
             <div class="btn-group btn-group-vertical" style="margin-top: 20px;">
-                <a href="#" class="btn" data-jo='@Html.Datajo(x => x.Show("#div1"))'>@@Html.Datajo(x => x.Show("#div1"))</a>
+                <a href="#" class="btn" data-jo='@Html.Datajo(x => x.Show("#div1"))'>
+                    @@Html.Datajo(x => x.Show("#div1"))
+                </a>
                 <a href="#" class="btn" data-jo='@Html.Datajo(x => x.Show("#div1", 3000, "easeOutElastic"))'>@@Html.Datajo(x => x.Show("#div1", 3000, "easeOutElastic"))</a>
                 <a href="#" class="btn" data-jo='{"action":"show","target":"#div1"}'>data-jo='{"action":"show","target":"#div1"}'</a>
                 <a href="#" class="btn" data-jo='{"action":"show","target":"#div1","duration":1000}'>data-jo='{"action":"show","target":"#div1","duration":1000}'</a>
