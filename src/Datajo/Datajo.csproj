@@ -21,6 +21,10 @@
     <UpgradeBackupLocation />
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="Infrastructure\jasmine.d.ts" />
+    <Content Include="Infrastructure\specs.js" />
+    <Content Include="Library\datajo.js" />
+    <JasmineCompile Include="Underscore.spec.ts" />
     <TypeScriptCompile Include="EventName.ts" />
     <TypeScriptCompile Include="Runner.ts" />
     <TypeScriptCompile Include="Underscore.ts" />
@@ -43,15 +47,13 @@
     <TypeScriptCompile Include="ActionHandler.ts" />
     <Content Include="Infrastructure\jquery-1.8.3.js" />
     <Content Include="Infrastructure\jquery-ui-1.9.2.js" />
-    <Content Include="Infrastructure\jquery.d.ts" />
-    <Content Include="Jasmine\jasmine-html.js" />
-    <Content Include="Jasmine\jasmine.css" />
-    <Content Include="Jasmine\jasmine.html" />
-    <Content Include="Jasmine\jasmine.js" />
+    <TypeScriptCompile Include="Infrastructure\jquery.d.ts" />
+    <Content Include="Infrastructure\jasmine-html.js" />
+    <Content Include="Infrastructure\jasmine.css" />
+    <Content Include="Infrastructure\jasmine.html" />
+    <Content Include="Infrastructure\jasmine.js" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Library\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -85,7 +87,9 @@
   </PropertyGroup>
   <Target Name="BeforeBuild">
     <Message Text="Compiling TypeScript files" />
-    <Message Text="Executing tsc$(TypeScriptSourceMap) @(TypeScriptCompile ->'&quot;%(fullpath)&quot;', ' ')" />
-    <Exec Command="tsc$(TypeScriptSourceMap) @(TypeScriptCompile ->'&quot;%(fullpath)&quot;', ' ')" />
+    <Message Text="Executing tsc$(TypeScriptSourceMap) --out Library/datajo.js @(TypeScriptCompile ->'&quot;%(fullpath)&quot;', ' ')" />
+    <Exec Command="tsc$(TypeScriptSourceMap) --out Library/datajo.js @(TypeScriptCompile ->'&quot;%(fullpath)&quot;', ' ')" />
+    <Message Text="Executing tsc$(TypeScriptSourceMap) --out Infrastructure/specs.js @(TypeScriptCompile ->'&quot;%(fullpath)&quot;', ' ') @(JasmineCompile ->'&quot;%(fullpath)&quot;', ' ')" />
+    <Exec Command="tsc$(TypeScriptSourceMap) --out Infrastructure/specs.js @(TypeScriptCompile ->'&quot;%(fullpath)&quot;', ' ') @(JasmineCompile ->'&quot;%(fullpath)&quot;', ' ')" />
   </Target>
 </Project>
