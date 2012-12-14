@@ -5,36 +5,26 @@ class EventName {
     private static events = {
         click: (e: Element) => { return true },
         load: (e: Element) => { return true },
-        submit: (e: Element) => { return e.tagName === 'form' },
+        submit: (e: Element) => { return _.normalize(e.tagName) === 'form' },
     };
-    public static nameOrDefault(data: any, element: Element) {
-        var event = this.getEvent(data);
-        if (this.isSupported(event, element)) {
+    public static extract(action: any, element: Element): string {
+        if (!element) {
+            throw new Exception('HTML element has not been provided');
+        }
+
+        var event = _.isString(action.event) ? _.normalize(action.event) : 'click';
+        if (event === '') {
+            event = 'click';
+        }
+
+        if (this.events[event] === undefined) {
+            throw new Exception('Event ' + event + ' has not been recognized');
+        }
+
+        if (this.events[event](element)) {
             return event;
         }
+
         throw new Exception('Event "' + event + '" is not supported by "' + element.tagName + '" tag.');
-    }
-    private static getEvent(data: any): string {
-        if (data.event === undefined || data.event === null || !_.isString(data.event)) {
-            return 'click';
-        }
-
-        var event = _.normalize(data.event);
-        if (event === '') {
-            return 'click'
-        }
-
-        if (this.events[event] === undefined) {
-            throw new Exception('Event ' + event + ' is not supported');
-        }
-
-        return event;
-    };
-    private static isSupported(event: string, element: Element): bool {
-        if (this.events[event] === undefined) {
-            return false;
-        }
-
-        return this.events[event](element);
     }
 }

@@ -78,14 +78,14 @@ class Runner {
             var data = {};
             if (_.isArray(obj)) {
                 for (var j in obj) {
-                    var event = EventName.getEvent(obj[j]);
+                    var event = EventName.extract(obj[j], element);
                     if (data[event] === undefined) {
                         data[event] = [];
                     }
                     data[event].push(obj[j]);
                 }
             } else {
-                data[EventName.getEvent(obj)] = [obj];
+                data[EventName.extract(obj, element)] = [obj];
             }
             return data;
         }
