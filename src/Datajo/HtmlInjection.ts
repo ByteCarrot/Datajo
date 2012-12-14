@@ -1,5 +1,6 @@
 /// <reference path="Infrastructure/jquery.d.ts" />
 /// <reference path="TargetResolver.ts" />
+/// <reference path="AjaxAction.ts" />
 
 class HtmlInjection {
     private static injections = {

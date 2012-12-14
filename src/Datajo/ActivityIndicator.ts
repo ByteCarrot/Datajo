@@ -1,4 +1,5 @@
 /// <reference path="Configuration.ts" />
+/// <reference path="Infrastructure/jquery.d.ts" />
 
 class ActivityIndicator {
     private showMe: () => void;

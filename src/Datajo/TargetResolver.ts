@@ -1,4 +1,5 @@
 /// <reference path="Infrastructure/jquery.d.ts" />
+/// <reference path="Action.ts" />
 
 class TargetResolver {
     private static resolvers = {
