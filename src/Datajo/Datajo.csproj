@@ -19,6 +19,8 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UpgradeBackupLocation />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <ItemGroup>
     <JasmineCompile Include="EventName.spec.ts" />
@@ -54,7 +56,6 @@
     <Content Include="Infrastructure\jasmine.html" />
     <Content Include="Infrastructure\jasmine.js" />
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -105,4 +106,9 @@
     <Exec Command="xcopy /Q /Y &quot;$(ProjectDir)Library\datajo.js&quot; &quot;$(SolutionDir)NuGet\content\Scripts&quot;" />
     <Exec Command="xcopy /Q /Y &quot;$(ProjectDir)Library\datajo.min.js&quot; &quot;$(SolutionDir)NuGet\content\Scripts&quot;" />
   </Target>
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /Q /Y "$(ProjectDir)Library\datajo.js" "$(SolutionDir)NuGet\content\Scripts"
+xcopy /Q /Y "$(ProjectDir)Library\datajo.js" "$(SolutionDir)Datajo.Website\Scripts"</PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
 </Project>
