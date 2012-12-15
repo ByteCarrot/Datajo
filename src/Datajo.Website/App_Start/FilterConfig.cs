@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace ByteCarrot.Datajo.Web.App_Start
+namespace ByteCarrot.Datajo.Website.App_Start
 {
     public class FilterConfig
     {

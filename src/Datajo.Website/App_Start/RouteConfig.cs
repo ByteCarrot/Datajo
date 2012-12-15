@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace ByteCarrot.Datajo.Web.App_Start
+namespace ByteCarrot.Datajo.Website.App_Start
 {
     public class RouteConfig
     {

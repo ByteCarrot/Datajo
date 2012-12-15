@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Web.Mvc;
 
-namespace ByteCarrot.Datajo.Web.Controllers
+namespace ByteCarrot.Datajo.Website.Controllers
 {
     public class HomeController : Controller
     {
