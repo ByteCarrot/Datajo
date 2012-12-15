@@ -86,11 +86,23 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <TypeScriptSourceMap> --sourcemap</TypeScriptSourceMap>
   </PropertyGroup>
+  <Import Project="$(SolutionDir)\..\tools\AjaxMin\AjaxMin.tasks" />
   <Target Name="BeforeBuild">
     <Message Text="Compiling TypeScript files" />
     <Message Text="Executing tsc$(TypeScriptSourceMap) --out Library/datajo.js @(TypeScriptCompile ->'&quot;%(fullpath)&quot;', ' ')" />
     <Exec Command="tsc$(TypeScriptSourceMap) --out Library/datajo.js @(TypeScriptCompile ->'&quot;%(fullpath)&quot;', ' ')" />
     <Message Text="Executing tsc$(TypeScriptSourceMap) --out Infrastructure/specs.js @(TypeScriptCompile ->'&quot;%(fullpath)&quot;', ' ') @(JasmineCompile ->'&quot;%(fullpath)&quot;', ' ')" />
     <Exec Command="tsc$(TypeScriptSourceMap) --out Infrastructure/specs.js @(TypeScriptCompile ->'&quot;%(fullpath)&quot;', ' ') @(JasmineCompile ->'&quot;%(fullpath)&quot;', ' ')" />
+  </Target>
+  <Target Name="AfterBuild">
+    <ItemGroup>
+      <JS Include="**\*.js" Exclude="**\*.min.js" />
+    </ItemGroup>
+    <ItemGroup>
+      <CSS Include="**\*.css" Exclude="**\*.min.css" />
+    </ItemGroup>
+    <AjaxMin JsSourceFiles="@(JS)" JsSourceExtensionPattern="\.js$" JsTargetExtension=".min.js" CssSourceFiles="@(CSS)" CssSourceExtensionPattern="\.css$" CssTargetExtension=".min.css" />
+    <Exec Command="xcopy /Q /Y &quot;$(ProjectDir)Library\datajo.js&quot; &quot;$(SolutionDir)NuGet\content\Scripts&quot;" />
+    <Exec Command="xcopy /Q /Y &quot;$(ProjectDir)Library\datajo.min.js&quot; &quot;$(SolutionDir)NuGet\content\Scripts&quot;" />
   </Target>
 </Project>

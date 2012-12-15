@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuGet", "NuGet\NuGet.csproj", "{0451BAEF-DF2E-4B98-8644-94EE9415E389}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2DFC8442-E6A4-467A-BC3C-40A05DF06FAA} = {2DFC8442-E6A4-467A-BC3C-40A05DF06FAA}
+		{4C1CCCDD-1F2C-4FCC-9934-09D444B836DA} = {4C1CCCDD-1F2C-4FCC-9934-09D444B836DA}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E53D663D-5335-43E7-8ED7-776910EA0166}"
 	ProjectSection(SolutionItems) = preProject
@@ -13,6 +17,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datajo.Mvc", "Datajo.Mvc\Datajo.Mvc.csproj", "{2DFC8442-E6A4-467A-BC3C-40A05DF06FAA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datajo.Website", "Datajo.Website\Datajo.Website.csproj", "{85DA12C2-5506-4133-883C-8E05B8339690}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4C1CCCDD-1F2C-4FCC-9934-09D444B836DA} = {4C1CCCDD-1F2C-4FCC-9934-09D444B836DA}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datajo", "Datajo\Datajo.csproj", "{4C1CCCDD-1F2C-4FCC-9934-09D444B836DA}"
 EndProject

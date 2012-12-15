@@ -198,20 +198,12 @@
     <Content Include="Scripts\jquery-1.8.3.min.js" />
     <Content Include="Scripts\jquery-ui-1.9.2.js" />
     <Content Include="Scripts\jquery-ui-1.9.2.min.js" />
-    <Content Include="Scripts\jquery.d.ts" />
-    <Content Include="Scripts\datajo.js">
-      <DependentUpon>datajo.ts</DependentUpon>
-    </Content>
-    <Content Include="Scripts\datajo.min.js">
-      <DependentUpon>datajo.ts</DependentUpon>
-    </Content>
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\GetExample.cshtml" />
     <Content Include="Views\Home\PostExample.cshtml" />
     <Content Include="Views\Home\PostExample2.cshtml" />
     <Content Include="Views\Home\PostExample2Success.cshtml" />
     <Content Include="Views\Home\LongRunningExample.cshtml" />
-    <TypeScriptCompile Include="Scripts\datajo.ts" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -259,9 +251,6 @@
     </VisualStudio>
   </ProjectExtensions>
   <Import Project="$(SolutionDir)\..\tools\AjaxMin\AjaxMin.tasks" />
-  <Target Name="BeforeBuild">
-    <Exec Command="&quot;$(PROGRAMFILES)\Microsoft SDKs\TypeScript\0.8.1.1\tsc.exe&quot; @(TypeScriptCompile ->'&quot;%(fullpath)&quot;', ' ')" />
-  </Target>
   <Target Name="AfterBuild">
     <ItemGroup>
       <JS Include="**\*.js" Exclude="**\*.min.js" />
@@ -270,8 +259,6 @@
       <CSS Include="**\*.css" Exclude="**\*.min.css" />
     </ItemGroup>
     <AjaxMin JsSourceFiles="@(JS)" JsSourceExtensionPattern="\.js$" JsTargetExtension=".min.js" CssSourceFiles="@(CSS)" CssSourceExtensionPattern="\.css$" CssTargetExtension=".min.css" />
-    <Exec Command="xcopy /Q /Y &quot;$(ProjectDir)Scripts\datajo.js&quot; &quot;$(SolutionDir)NuGet\content\Scripts&quot;" />
-    <Exec Command="xcopy /Q /Y &quot;$(ProjectDir)Scripts\datajo.min.js&quot; &quot;$(SolutionDir)NuGet\content\Scripts&quot;" />
   </Target>
   <PropertyGroup>
     <PostBuildEvent>
