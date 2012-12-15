@@ -23,9 +23,16 @@
     <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="Library\datajo.min.js" />
     <JasmineCompile Include="EventName.spec.ts" />
+    <Content Include="Infrastructure\jasmine-html.min.js" />
     <Content Include="Infrastructure\jasmine.d.ts" />
+    <Content Include="Infrastructure\jasmine.min.css" />
+    <Content Include="Infrastructure\jasmine.min.js" />
+    <Content Include="Infrastructure\jquery-1.8.3.min.js" />
+    <Content Include="Infrastructure\jquery-ui-1.9.2.min.js" />
     <Content Include="Infrastructure\specs.js" />
+    <Content Include="Infrastructure\specs.min.js" />
     <Content Include="Library\datajo.js" />
     <JasmineCompile Include="Underscore.spec.ts" />
     <TypeScriptCompile Include="EventName.ts" />
@@ -107,8 +114,8 @@
     <Exec Command="xcopy /Q /Y &quot;$(ProjectDir)Library\datajo.min.js&quot; &quot;$(SolutionDir)NuGet\content\Scripts&quot;" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>xcopy /Q /Y "$(ProjectDir)Library\datajo.js" "$(SolutionDir)NuGet\content\Scripts"
-xcopy /Q /Y "$(ProjectDir)Library\datajo.js" "$(SolutionDir)Datajo.Website\Scripts"</PostBuildEvent>
+    <PostBuildEvent>xcopy /Q /Y "$(ProjectDir)Library\*.js" "$(SolutionDir)NuGet\content\Scripts"
+xcopy /Q /Y "$(ProjectDir)Library\*.js" "$(SolutionDir)Datajo.Website\Scripts"</PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
 </Project>
