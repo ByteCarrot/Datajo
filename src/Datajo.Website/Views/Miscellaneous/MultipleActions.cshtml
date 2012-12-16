@@ -1,0 +1,15 @@
+﻿@model dynamic
+
+@{
+    Layout = MVC.Shared.Views._Layout;
+}
+
+<h2>Multiple actions</h2>
+<div class="example-box">
+    <div id="div3"></div>
+    <div id="div4" style="display: none"></div>
+</div>
+<div class="btn-group btn-group-vertical" style="margin-top: 20px;">
+    <a href="#" class="btn" data-jo='[{"action":"hide","target":"#div3","duration":2000},{"action":"show","target":"#div4","duration":2000}]'>data-jo='[{"action":"hide","target":"#div3","duration":2000},{"action":"show","target":"#div4","duration":2000}]'</a>
+    <a href="#" class="btn btn-info" data-jo='[{"action":"show","target":"#div3"},{"action":"hide","target":"#div4"}]'>Reset</a>
+</div>

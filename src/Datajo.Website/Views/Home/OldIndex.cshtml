@@ -1,0 +1,62 @@
+﻿@using ByteCarrot.Datajo.Mvc
+@using ByteCarrot.Datajo.Website.Controllers
+@model dynamic
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Datajo</title>
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/style.less" />
+    <script type="text/javascript" src="~/Scripts/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-ui-1.9.2.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/datajo.js"></script>
+    <style type="text/css">
+        body {
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+    </style>
+</head>
+<body data-jo-config='{"activityIndicator":"#loader"}'>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="#">Datajo</a>
+                <div id="loader">
+                    <img src="~/Content/images/activity-indicator.gif" alt=""/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <section>
+            <h2>Special targets: _self, _parent</h2>
+            <div class="example-box-get" id="div9" style="margin-bottom: 20px;">
+                <button class="btn" data-jo='{"action":"hide","target":"_self"}'>Hide me! data-jo='{"action":"hide","target":"_self"}'</button>
+                <button class="btn" data-jo='{"action":"hide","target":"_parent"}'>Hide my parent! data-jo='{"action":"hide","target":"_parent"}'</button>
+            </div>
+            <a href="#" class="btn btn-info" data-jo='[{"action":"show","target":"#div9"},{"action":"show","target":"#div9 button"}]'>Reset</a>
+        </section>
+        
+        <section>
+            <h2>Ajax errors</h2>
+            <button class="btn" type="button" data-jo='{"action":"post","target":"#div9","url":"/home/notexistingurl","form":"#form3"}'>Send request to a not existing URL</button>
+        </section>
+        
+        <section>
+            <h2>Activity indicator</h2>
+            <div id="div10" class="example-box-get"></div>
+            <div class="btn-group btn-group-vertical" style="margin-top: 20px;">
+                <a href="#" class="btn" data-jo='@Html.Datajo(x => x.Get("#div10", "/home/longrunningexample"))'></a>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

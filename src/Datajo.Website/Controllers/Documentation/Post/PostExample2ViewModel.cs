@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace ByteCarrot.Datajo.Website.Controllers
+namespace ByteCarrot.Datajo.Website.Controllers.Documentation.Post
 {
     public class PostExample2ViewModel
     {

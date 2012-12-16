@@ -1,0 +1,18 @@
+﻿@model dynamic
+
+@{
+    Layout = MVC.Shared.Views._Layout;
+}
+
+<h2>{"action":"<i>show</i>"}</h2>
+<div class="example-box">
+    <div id="div1" style="display: none"></div>
+</div>
+<div class="btn-group btn-group-vertical" style="margin-top: 20px;">
+    <a href="#" class="btn" data-jo='{"action":"show","target":"#div1"}'>data-jo='{"action":"show","target":"#div1"}'</a>
+    <a href="#" class="btn" data-jo='{"action":"show","target":"#div1","duration":1000}'>data-jo='{"action":"show","target":"#div1","duration":1000}'</a>
+    <a href="#" class="btn" data-jo='{"action":"show","target":"#div1","easing":"swing"}'>data-jo='{"action":"show","target":"#div1","easing":"swing"}'</a>
+    <a href="#" class="btn" data-jo='{"action":"show","target":"#div1","easing":"easeOutElastic"}'>data-jo='{"action":"show","target":"#div1","easing":"easeOutElastic"}'</a>
+    <a href="#" class="btn" data-jo='{"action":"show","target":"#div1","duration":2000,"easing":"easeInBounce"}'>data-jo='{"action":"show","target":"#div1","duration":2000,"easing":"easeInBounce"}'</a>
+    <a href="#" class="btn btn-info" data-jo='{"action":"hide","target":"#div1"}'>Reset</a>
+</div>

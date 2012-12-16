@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Datajo</title>
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/style.less" />
+    <script type="text/javascript" src="~/Scripts/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-ui-1.9.2.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/datajo.js"></script>
+    <style type="text/css">
+        body {
+            padding-top: 70px;
+            padding-bottom: 40px;
+        }
+    </style>
+</head>
+<body data-jo-config='{"activityIndicator":"#loader"}'>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <img class="brand" src="~/Content/images/logo-small.png"/>
+                <div id="loader">
+                    <img src="~/Content/images/activity-indicator.gif" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="span3">
+                <div class="well" style="max-width: 340px; padding: 8px 0;">
+                    <ul class="nav nav-list">
+                        <li class="nav-header">Actions</li>
+                        <li><a href="@Url.Action(MVC.Show.Index())">show</a></li>
+                        <li><a href="@Url.Action(MVC.Hide.Index())">hide</a></li>
+                        <li><a href="@Url.Action(MVC.Get.Index())">get</a></li>
+                        <li><a href="@Url.Action(MVC.Post.Index())">post</a></li>
+                        <li class="nav-header">Miscellaneous</li>
+                        <li><a href="@Url.Action(MVC.Miscellaneous.MultipleActions())">Multiple actions</a></li>
+                        <li><a href="#">Special targets</a></li>
+                        <li><a href="#">Ajax errors</a></li>
+                        <li><a href="#">Activity indicator</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="span9">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</body>
+</html>

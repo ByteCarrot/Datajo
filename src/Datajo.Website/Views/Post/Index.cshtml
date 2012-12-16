@@ -1,0 +1,46 @@
+﻿@using ByteCarrot.Datajo.Website.Controllers.Documentation.Post
+@model dynamic
+
+@{
+    Layout = MVC.Shared.Views._Layout;
+}
+
+<h2>{"action":"<i>post</i>"}</h2>
+<fieldset>
+    <legend>Simplest example</legend>
+    <form id="form1">
+        <div class="row">
+            <div class="span12">
+                <input name="TextField" type="text" value="" class="input-xlarge" placeholder="Add some text and click button below" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <button type="button" data-jo='{"action":"post","target":"#div7","url":"/home/postexample","form":"#form1"}'>data-jo='{"action":"post","target":"#div7","url":"/home/postexample","form":"#form1"}'</button>
+            </div>
+        </div>
+    </form>
+    <div id="div7" class="example-box-get"></div>
+</fieldset>
+<fieldset>
+    <legend>Replace</legend>
+    @Html.Partial("PostExample2", new PostExample2ViewModel())
+</fieldset>
+<fieldset>
+    <legend>Confirmations</legend>
+    <form id="form3">
+        <div class="row">
+            <div class="span12">
+                <input name="TextField" type="text" value="" class="input-xlarge" placeholder="Add some text and click button below" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <div class="btn-group btn-group-vertical" style="margin-top: 20px;">
+                    <button class="btn" type="button" data-jo='{"action":"post","target":"#div8","url":"/home/postexample","form":"#form3","confirm":"Are you sure?"}'>data-jo='{"action":"post","target":"#div8","url":"/home/postexample","form":"#form3","confirm":"Are you sure?"}'</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div id="div8" class="example-box-get"></div>
+</fieldset>

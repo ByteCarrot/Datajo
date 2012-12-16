@@ -1,0 +1,31 @@
+﻿@model dynamic
+
+@{
+    Layout = MVC.Shared.Views._Layout;
+}
+
+<h2>{"action":"<i>get</i>"}</h2>
+<div id="div5" class="example-box-get"></div>
+<div class="btn-group btn-group-vertical" style="margin-top: 20px;">
+    <a href="#" class="btn" data-jo='{"action":"get","target":"#div5","url":"/home/getexample"}'>data-jo='{"action":"get","target":"#div5","url":"/home/getexample"}'</a>
+    <a href="#" class="btn" data-jo='{"action":"get","target":"#div5","url":"/home/getexample","inject":"afterContent"}'>data-jo='{"action":"get","target":"#div5","url":"/home/getexample","inject":"afterContent"}'</a>
+    <a href="#" class="btn" data-jo='{"action":"get","target":"#div5","url":"/home/getexample","inject":"beforeContent"}'>data-jo='{"action":"get","target":"#div5","url":"/home/getexample","inject":"beforeContent"}'</a>
+    <a href="#" class="btn" data-jo='{"action":"get","target":"#div5","url":"/home/getexample","inject":"replaceContent"}'>data-jo='{"action":"get","target":"#div5","url":"/home/getexample","inject":"replaceContent"}'</a>
+</div>
+<div class="example-box-get" style="margin-top: 20px;" id="div6-container">
+    <div id="div6">Target</div>
+</div>
+<div class="btn-group btn-group-vertical" style="margin-top: 20px;">
+    <a href="#" class="btn" data-jo='{"action":"get","target":"#div6","url":"/home/getexample","inject":"afterTarget"}'>data-jo='{"action":"get","target":"#div6","url":"/home/getexample","inject":"afterTarget"}'</a>
+    <a href="#" class="btn" data-jo='{"action":"get","target":"#div6","url":"/home/getexample","inject":"beforeTarget"}'>data-jo='{"action":"get","target":"#div6","url":"/home/getexample","inject":"beforeTarget"}'</a>
+    <a href="#" class="btn" data-jo='{"action":"get","target":"#div6","url":"/home/getexample","inject":"replaceTarget"}'>data-jo='{"action":"get","target":"#div6","url":"/home/getexample","inject":"replaceTarget"}'</a>
+    <a href="#" class="btn btn-info" id="div6-reset">Reset</a>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#div6-reset').click(function (event) {
+            event.preventDefault();
+            $('#div6-container').html('<div id="div6">Target</div>');
+        });
+    });
+</script>
