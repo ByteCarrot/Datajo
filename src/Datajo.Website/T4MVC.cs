@@ -87,6 +87,69 @@ namespace Links
         public static readonly string jquery_ui_1_9_2_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-ui-1.9.2.min.js") ? Url("jquery-ui-1.9.2.min.js") : Url("jquery-ui-1.9.2.js");
                       
         public static readonly string jquery_ui_1_9_2_min_js = Url("jquery-ui-1.9.2.min.js");
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public static class SyntaxHighlighter {
+            private const string URLPATH = "~/Scripts/SyntaxHighlighter";
+            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+            public static readonly string shAutoloader_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shAutoloader.min.js") ? Url("shAutoloader.min.js") : Url("shAutoloader.js");
+                          
+            public static readonly string shBrushAppleScript_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shBrushAppleScript.min.js") ? Url("shBrushAppleScript.min.js") : Url("shBrushAppleScript.js");
+                          
+            public static readonly string shBrushAS3_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shBrushAS3.min.js") ? Url("shBrushAS3.min.js") : Url("shBrushAS3.js");
+                          
+            public static readonly string shBrushBash_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shBrushBash.min.js") ? Url("shBrushBash.min.js") : Url("shBrushBash.js");
+                          
+            public static readonly string shBrushColdFusion_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shBrushColdFusion.min.js") ? Url("shBrushColdFusion.min.js") : Url("shBrushColdFusion.js");
+                          
+            public static readonly string shBrushCpp_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shBrushCpp.min.js") ? Url("shBrushCpp.min.js") : Url("shBrushCpp.js");
+                          
+            public static readonly string shBrushCSharp_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shBrushCSharp.min.js") ? Url("shBrushCSharp.min.js") : Url("shBrushCSharp.js");
+                          
+            public static readonly string shBrushCss_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shBrushCss.min.js") ? Url("shBrushCss.min.js") : Url("shBrushCss.js");
+                          
+            public static readonly string shBrushDelphi_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shBrushDelphi.min.js") ? Url("shBrushDelphi.min.js") : Url("shBrushDelphi.js");
+                          
+            public static readonly string shBrushDiff_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shBrushDiff.min.js") ? Url("shBrushDiff.min.js") : Url("shBrushDiff.js");
+                          
+            public static readonly string shBrushErlang_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shBrushErlang.min.js") ? Url("shBrushErlang.min.js") : Url("shBrushErlang.js");
+                          
+            public static readonly string shBrushGroovy_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shBrushGroovy.min.js") ? Url("shBrushGroovy.min.js") : Url("shBrushGroovy.js");
+                          
+            public static readonly string shBrushJava_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shBrushJava.min.js") ? Url("shBrushJava.min.js") : Url("shBrushJava.js");
+                          
+            public static readonly string shBrushJavaFX_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shBrushJavaFX.min.js") ? Url("shBrushJavaFX.min.js") : Url("shBrushJavaFX.js");
+                          
+            public static readonly string shBrushJScript_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shBrushJScript.min.js") ? Url("shBrushJScript.min.js") : Url("shBrushJScript.js");
+                          
+            public static readonly string shBrushPerl_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shBrushPerl.min.js") ? Url("shBrushPerl.min.js") : Url("shBrushPerl.js");
+                          
+            public static readonly string shBrushPhp_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shBrushPhp.min.js") ? Url("shBrushPhp.min.js") : Url("shBrushPhp.js");
+                          
+            public static readonly string shBrushPlain_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shBrushPlain.min.js") ? Url("shBrushPlain.min.js") : Url("shBrushPlain.js");
+                          
+            public static readonly string shBrushPowerShell_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shBrushPowerShell.min.js") ? Url("shBrushPowerShell.min.js") : Url("shBrushPowerShell.js");
+                          
+            public static readonly string shBrushPython_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shBrushPython.min.js") ? Url("shBrushPython.min.js") : Url("shBrushPython.js");
+                          
+            public static readonly string shBrushRuby_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shBrushRuby.min.js") ? Url("shBrushRuby.min.js") : Url("shBrushRuby.js");
+                          
+            public static readonly string shBrushSass_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shBrushSass.min.js") ? Url("shBrushSass.min.js") : Url("shBrushSass.js");
+                          
+            public static readonly string shBrushScala_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shBrushScala.min.js") ? Url("shBrushScala.min.js") : Url("shBrushScala.js");
+                          
+            public static readonly string shBrushSql_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shBrushSql.min.js") ? Url("shBrushSql.min.js") : Url("shBrushSql.js");
+                          
+            public static readonly string shBrushVb_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shBrushVb.min.js") ? Url("shBrushVb.min.js") : Url("shBrushVb.js");
+                          
+            public static readonly string shBrushXml_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shBrushXml.min.js") ? Url("shBrushXml.min.js") : Url("shBrushXml.js");
+                          
+            public static readonly string shCore_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shCore.min.js") ? Url("shCore.min.js") : Url("shCore.js");
+                          
+            public static readonly string shLegacy_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shLegacy.min.js") ? Url("shLegacy.min.js") : Url("shLegacy.js");
+                          
+        }
+    
     }
 
     [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -112,6 +175,47 @@ namespace Links
         }
     
         public static readonly string style_less = Url("style.less");
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public static class SyntaxHighlighter {
+            private const string URLPATH = "~/Content/SyntaxHighlighter";
+            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+            public static readonly string shCore_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shCore.min.css") ? Url("shCore.min.css") : Url("shCore.css");
+                 
+            public static readonly string shCoreDefault_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shCoreDefault.min.css") ? Url("shCoreDefault.min.css") : Url("shCoreDefault.css");
+                 
+            public static readonly string shCoreDjango_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shCoreDjango.min.css") ? Url("shCoreDjango.min.css") : Url("shCoreDjango.css");
+                 
+            public static readonly string shCoreEclipse_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shCoreEclipse.min.css") ? Url("shCoreEclipse.min.css") : Url("shCoreEclipse.css");
+                 
+            public static readonly string shCoreEmacs_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shCoreEmacs.min.css") ? Url("shCoreEmacs.min.css") : Url("shCoreEmacs.css");
+                 
+            public static readonly string shCoreFadeToGrey_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shCoreFadeToGrey.min.css") ? Url("shCoreFadeToGrey.min.css") : Url("shCoreFadeToGrey.css");
+                 
+            public static readonly string shCoreMDUltra_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shCoreMDUltra.min.css") ? Url("shCoreMDUltra.min.css") : Url("shCoreMDUltra.css");
+                 
+            public static readonly string shCoreMidnight_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shCoreMidnight.min.css") ? Url("shCoreMidnight.min.css") : Url("shCoreMidnight.css");
+                 
+            public static readonly string shCoreRDark_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shCoreRDark.min.css") ? Url("shCoreRDark.min.css") : Url("shCoreRDark.css");
+                 
+            public static readonly string shThemeDefault_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shThemeDefault.min.css") ? Url("shThemeDefault.min.css") : Url("shThemeDefault.css");
+                 
+            public static readonly string shThemeDjango_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shThemeDjango.min.css") ? Url("shThemeDjango.min.css") : Url("shThemeDjango.css");
+                 
+            public static readonly string shThemeEclipse_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shThemeEclipse.min.css") ? Url("shThemeEclipse.min.css") : Url("shThemeEclipse.css");
+                 
+            public static readonly string shThemeEmacs_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shThemeEmacs.min.css") ? Url("shThemeEmacs.min.css") : Url("shThemeEmacs.css");
+                 
+            public static readonly string shThemeFadeToGrey_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shThemeFadeToGrey.min.css") ? Url("shThemeFadeToGrey.min.css") : Url("shThemeFadeToGrey.css");
+                 
+            public static readonly string shThemeMDUltra_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shThemeMDUltra.min.css") ? Url("shThemeMDUltra.min.css") : Url("shThemeMDUltra.css");
+                 
+            public static readonly string shThemeMidnight_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shThemeMidnight.min.css") ? Url("shThemeMidnight.min.css") : Url("shThemeMidnight.css");
+                 
+            public static readonly string shThemeRDark_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/shThemeRDark.min.css") ? Url("shThemeRDark.min.css") : Url("shThemeRDark.css");
+                 
+        }
+    
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public static class themes {
             private const string URLPATH = "~/Content/themes";

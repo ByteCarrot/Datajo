@@ -62,6 +62,8 @@ namespace ByteCarrot.Datajo.Website.Controllers.Documentation.Miscellaneous
         {
             public readonly string MultipleActions = "MultipleActions";
             public readonly string LongRunningExample = "LongRunningExample";
+            public readonly string HtmlInjectionTypes = "HtmlInjectionTypes";
+            public readonly string EventTypes = "EventTypes";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -69,6 +71,8 @@ namespace ByteCarrot.Datajo.Website.Controllers.Documentation.Miscellaneous
         {
             public const string MultipleActions = "MultipleActions";
             public const string LongRunningExample = "LongRunningExample";
+            public const string HtmlInjectionTypes = "HtmlInjectionTypes";
+            public const string EventTypes = "EventTypes";
         }
 
 
@@ -82,9 +86,13 @@ namespace ByteCarrot.Datajo.Website.Controllers.Documentation.Miscellaneous
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
+                public readonly string EventTypes = "EventTypes";
+                public readonly string HtmlInjectionTypes = "HtmlInjectionTypes";
                 public readonly string LongRunningExample = "LongRunningExample";
                 public readonly string MultipleActions = "MultipleActions";
             }
+            public readonly string EventTypes = "~/Views/Miscellaneous/EventTypes.cshtml";
+            public readonly string HtmlInjectionTypes = "~/Views/Miscellaneous/HtmlInjectionTypes.cshtml";
             public readonly string LongRunningExample = "~/Views/Miscellaneous/LongRunningExample.cshtml";
             public readonly string MultipleActions = "~/Views/Miscellaneous/MultipleActions.cshtml";
         }
@@ -104,6 +112,18 @@ namespace ByteCarrot.Datajo.Website.Controllers.Documentation.Miscellaneous
         public override System.Web.Mvc.ActionResult LongRunningExample()
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.LongRunningExample);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult HtmlInjectionTypes()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.HtmlInjectionTypes);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult EventTypes()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.EventTypes);
             return callInfo;
         }
 

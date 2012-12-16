@@ -4,28 +4,61 @@
     Layout = MVC.Shared.Views._Layout;
 }
 
-<h2>{"action":"<i>get</i>"}</h2>
-<div id="div5" class="example-box-get"></div>
-<div class="btn-group btn-group-vertical" style="margin-top: 20px;">
-    <a href="#" class="btn" data-jo='{"action":"get","target":"#div5","url":"/home/getexample"}'>data-jo='{"action":"get","target":"#div5","url":"/home/getexample"}'</a>
-    <a href="#" class="btn" data-jo='{"action":"get","target":"#div5","url":"/home/getexample","inject":"afterContent"}'>data-jo='{"action":"get","target":"#div5","url":"/home/getexample","inject":"afterContent"}'</a>
-    <a href="#" class="btn" data-jo='{"action":"get","target":"#div5","url":"/home/getexample","inject":"beforeContent"}'>data-jo='{"action":"get","target":"#div5","url":"/home/getexample","inject":"beforeContent"}'</a>
-    <a href="#" class="btn" data-jo='{"action":"get","target":"#div5","url":"/home/getexample","inject":"replaceContent"}'>data-jo='{"action":"get","target":"#div5","url":"/home/getexample","inject":"replaceContent"}'</a>
+<h2>Action: <i>get</i></h2>
+<p>
+    Get action uses jQuery's <a href="http://api.jquery.com/jQuery.get/" target="_blank">$.get()</a> function to access specified URL and inject returned HTML to the right place.
+</p>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>Parameter</th>
+        <th>Required</th>
+        <th>Default</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>target</td>
+        <td>yes</td>
+        <td></td>
+        <td>Any valid jQuery selector representing unique HTML element</td>
+    </tr>
+    <tr>
+        <td>url</td>
+        <td>yes</td>
+        <td></td>
+        <td>Any valid URL returning a HTML code
+        </td>
+    </tr>
+    <tr>
+        <td>inject</td>
+        <td>no</td>
+        <td>replaceContent</td>
+        <td>Any valid <a href="@Url.Action(MVC.Miscellaneous.HtmlInjectionTypes())">HTML injection type</a>
+        </td>
+    </tr>
+    <tr>
+        <td>event</td>
+        <td>no</td>
+        <td>click</td>
+        <td>Any valid <a href="@Url.Action(MVC.Miscellaneous.EventTypes())">event type</a>
+        </td>
+    </tr>
+</table>
+Exmple:
+<pre class="brush: js">
+{
+    "action":"get",
+    "target":"#box",
+    "url":"http://example.com/sample",
+    "inject":"afterContent"
+}
+</pre>
+
+<div id="box" class="example-box-get"></div>
+<div class="btn-group btn-group" style="margin-top: 20px;">
+    <a href="#" class="btn" data-jo='{"action":"get","target":"#box","url":"/action/get/example","inject":"afterContent"}'>
+        Click me!
+    </a>
+    <a href="#" class="btn btn-info" data-jo='{"action":"get","target":"#box","url":"/action/get/example","inject":"replaceContent"}'>
+        Reset
+    </a>
 </div>
-<div class="example-box-get" style="margin-top: 20px;" id="div6-container">
-    <div id="div6">Target</div>
-</div>
-<div class="btn-group btn-group-vertical" style="margin-top: 20px;">
-    <a href="#" class="btn" data-jo='{"action":"get","target":"#div6","url":"/home/getexample","inject":"afterTarget"}'>data-jo='{"action":"get","target":"#div6","url":"/home/getexample","inject":"afterTarget"}'</a>
-    <a href="#" class="btn" data-jo='{"action":"get","target":"#div6","url":"/home/getexample","inject":"beforeTarget"}'>data-jo='{"action":"get","target":"#div6","url":"/home/getexample","inject":"beforeTarget"}'</a>
-    <a href="#" class="btn" data-jo='{"action":"get","target":"#div6","url":"/home/getexample","inject":"replaceTarget"}'>data-jo='{"action":"get","target":"#div6","url":"/home/getexample","inject":"replaceTarget"}'</a>
-    <a href="#" class="btn btn-info" id="div6-reset">Reset</a>
-</div>
-<script type="text/javascript">
-    $(function () {
-        $('#div6-reset').click(function (event) {
-            event.preventDefault();
-            $('#div6-container').html('<div id="div6">Target</div>');
-        });
-    });
-</script>

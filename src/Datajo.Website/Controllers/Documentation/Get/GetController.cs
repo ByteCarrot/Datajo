@@ -9,7 +9,7 @@ namespace ByteCarrot.Datajo.Website.Controllers.Documentation.Get
             return View();
         }
 
-        public virtual ActionResult GetExample()
+        public virtual ActionResult Example()
         {
             return PartialView();
         }

@@ -15,5 +15,15 @@ namespace ByteCarrot.Datajo.Website.Controllers.Documentation.Miscellaneous
             Thread.Sleep(5000);
             return PartialView();
         }
+
+        public virtual ActionResult HtmlInjectionTypes()
+        {
+            return View();
+        }
+
+        public virtual ActionResult EventTypes()
+        {
+            return View();
+        }
     }
 }

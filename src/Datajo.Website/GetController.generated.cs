@@ -61,14 +61,14 @@ namespace ByteCarrot.Datajo.Website.Controllers.Documentation.Get
         public class ActionNamesClass
         {
             public readonly string Index = "Index";
-            public readonly string GetExample = "GetExample";
+            public readonly string Example = "Example";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionNameConstants
         {
             public const string Index = "Index";
-            public const string GetExample = "GetExample";
+            public const string Example = "Example";
         }
 
 
@@ -82,10 +82,10 @@ namespace ByteCarrot.Datajo.Website.Controllers.Documentation.Get
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
-                public readonly string GetExample = "GetExample";
+                public readonly string Example = "Example";
                 public readonly string Index = "Index";
             }
-            public readonly string GetExample = "~/Views/Get/GetExample.cshtml";
+            public readonly string Example = "~/Views/Get/Example.cshtml";
             public readonly string Index = "~/Views/Get/Index.cshtml";
         }
     }
@@ -101,9 +101,9 @@ namespace ByteCarrot.Datajo.Website.Controllers.Documentation.Get
             return callInfo;
         }
 
-        public override System.Web.Mvc.ActionResult GetExample()
+        public override System.Web.Mvc.ActionResult Example()
         {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetExample);
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Example);
             return callInfo;
         }
 
