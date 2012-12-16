@@ -4,15 +4,50 @@
     Layout = MVC.Shared.Views._Layout;
 }
 
-<h2>{"action":"<i>show</i>"}</h2>
+<h2>Action: <i>show</i></h2>
+<p>
+    Uses jQuery's <a href="http://api.jquery.com/show/" target="_blank">.show()</a> function to show HTML element specified as a target.
+</p>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>Parameter</th>
+        <th>Required</th>
+        <th>Default</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>target</td>
+        <td>yes</td>
+        <td></td>
+        <td>Any valid jQuery selector representing unique HTML element which should be shown</td>
+    </tr>
+    <tr>
+        <td>duration</td>
+        <td>no</td>
+        <td>200</td>
+        <td>Duration of the animation in miliseconds</td>
+    </tr>
+    <tr>
+        <td>easing</td>
+        <td>no</td>
+        <td>linear</td>
+        <td></td>
+    </tr>
+</table>
+Exmple:
+<pre class="brush: js">
+{
+    "action":"show",
+    "target":"#div1",
+    "duration":2000,
+    "easing":"easeInBounce"
+}
+</pre>
 <div class="example-box">
-    <div id="div1" style="display: none"></div>
+    <div id="box" style="display: none"></div>
 </div>
-<div class="btn-group btn-group-vertical" style="margin-top: 20px;">
-    <a href="#" class="btn" data-jo='{"action":"show","target":"#div1"}'>data-jo='{"action":"show","target":"#div1"}'</a>
-    <a href="#" class="btn" data-jo='{"action":"show","target":"#div1","duration":1000}'>data-jo='{"action":"show","target":"#div1","duration":1000}'</a>
-    <a href="#" class="btn" data-jo='{"action":"show","target":"#div1","easing":"swing"}'>data-jo='{"action":"show","target":"#div1","easing":"swing"}'</a>
-    <a href="#" class="btn" data-jo='{"action":"show","target":"#div1","easing":"easeOutElastic"}'>data-jo='{"action":"show","target":"#div1","easing":"easeOutElastic"}'</a>
-    <a href="#" class="btn" data-jo='{"action":"show","target":"#div1","duration":2000,"easing":"easeInBounce"}'>data-jo='{"action":"show","target":"#div1","duration":2000,"easing":"easeInBounce"}'</a>
+<div class="btn-group btn-group" style="margin-top: 20px;">
+    <a href="#" class="btn" data-jo='{"action":"show","target":"#box"}'>Click me!</a>
+    <a href="#" class="btn" data-jo='{"action":"show","target":"#box","duration":2000,"easing":"easeInBounce"}'></a>
     <a href="#" class="btn btn-info" data-jo='{"action":"hide","target":"#div1"}'>Reset</a>
 </div>

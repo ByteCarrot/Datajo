@@ -1,5 +1,6 @@
 /// <reference path="ActionHandler.ts" />
 /// <reference path="ShowAction.ts" />
+/// <reference path="TargetResolver.ts" />
 
 class ShowActionHandler extends ActionHandler {
     execute(sender: Element, data: any) {
