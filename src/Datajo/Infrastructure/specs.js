@@ -133,20 +133,6 @@ var ShowAction = (function (_super) {
     return ShowAction;
 })(Action);
 ; ;
-var ShowActionHandler = (function (_super) {
-    __extends(ShowActionHandler, _super);
-    function ShowActionHandler() {
-        _super.apply(this, arguments);
-
-    }
-    ShowActionHandler.prototype.execute = function (sender, data) {
-        var action = new ShowAction(sender, data);
-        var target = TargetResolver.resolve(action);
-        target.show(action.duration === undefined ? 200 : action.duration, action.easing === undefined ? 'linear' : action.easing);
-    };
-    return ShowActionHandler;
-})(ActionHandler);
-; ;
 var TargetResolver = (function () {
     function TargetResolver() { }
     TargetResolver.resolvers = {
@@ -165,6 +151,20 @@ var TargetResolver = (function () {
     }
     return TargetResolver;
 })();
+var ShowActionHandler = (function (_super) {
+    __extends(ShowActionHandler, _super);
+    function ShowActionHandler() {
+        _super.apply(this, arguments);
+
+    }
+    ShowActionHandler.prototype.execute = function (sender, data) {
+        var action = new ShowAction(sender, data);
+        var target = TargetResolver.resolve(action);
+        target.show(action.duration === undefined ? 200 : action.duration, action.easing === undefined ? 'linear' : action.easing);
+    };
+    return ShowActionHandler;
+})(ActionHandler);
+; ;
 var HideAction = (function (_super) {
     __extends(HideAction, _super);
     function HideAction(sender, data) {

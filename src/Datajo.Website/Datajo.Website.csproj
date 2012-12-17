@@ -115,6 +115,18 @@
     <Compile Include="..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="GetController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HideController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HomeController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Infrastructure\ListConstraint.cs" />
     <Compile Include="Controllers\Documentation\Get\GetController.cs" />
     <Compile Include="Controllers\Documentation\Hide\HideController.cs" />
@@ -123,37 +135,33 @@
     <Compile Include="Controllers\Documentation\Post\PostController.cs" />
     <Compile Include="Controllers\Documentation\Post\PostExample2ViewModel.cs" />
     <Compile Include="Controllers\Documentation\Show\ShowController.cs" />
-    <Compile Include="GetController.generated.cs">
-      <DependentUpon>T4MVC.tt</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="HideController.generated.cs">
-      <DependentUpon>T4MVC.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HomeController.generated.cs">
-      <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\AreaRegistrationContextExtensions.cs" />
     <Compile Include="Infrastructure\LowercaseRoute.cs" />
     <Compile Include="Infrastructure\RouteCollectionExtensions.cs" />
     <Compile Include="MiscellaneousController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="PostController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="SharedController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="ShowController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="T4MVC.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>T4MVC.tt</DependentUpon>
+      <SubType>Code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -285,6 +293,10 @@
     <Content Include="Scripts\SyntaxHighlighter\shBrushXml.js" />
     <Content Include="Scripts\SyntaxHighlighter\shCore.js" />
     <Content Include="Scripts\SyntaxHighlighter\shLegacy.js" />
+    <Content Include="T4MVC.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>T4MVC.cs</LastGenOutput>
+    </Content>
     <Content Include="T4MVC.tt.settings.xml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Get\Example.cshtml" />
@@ -302,10 +314,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\OldIndex.cshtml" />
     <Content Include="T4MVC.tt.hooks.t4" />
-    <Content Include="T4MVC.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>T4MVC.cs</LastGenOutput>
-    </Content>
     <Content Include="Views\Show\Index.cshtml" />
     <Content Include="Views\Get\Index.cshtml" />
     <Content Include="Views\Hide\Index.cshtml" />
@@ -315,6 +323,10 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Miscellaneous\HtmlInjectionTypes.cshtml" />
     <Content Include="Views\Miscellaneous\EventTypes.cshtml" />
+    <Content Include="Views\Miscellaneous\EasingTypes.cshtml" />
+    <Content Include="Views\Miscellaneous\SpecialTargets.cshtml" />
+    <Content Include="Views\Miscellaneous\AjaxErrors.cshtml" />
+    <Content Include="Views\Miscellaneous\ActivityIndicator.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Datajo.Mvc\Datajo.Mvc.csproj">

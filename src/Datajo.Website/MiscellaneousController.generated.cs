@@ -64,6 +64,10 @@ namespace ByteCarrot.Datajo.Website.Controllers.Documentation.Miscellaneous
             public readonly string LongRunningExample = "LongRunningExample";
             public readonly string HtmlInjectionTypes = "HtmlInjectionTypes";
             public readonly string EventTypes = "EventTypes";
+            public readonly string EasingTypes = "EasingTypes";
+            public readonly string SpecialTargets = "SpecialTargets";
+            public readonly string AjaxErrors = "AjaxErrors";
+            public readonly string ActivityIndicator = "ActivityIndicator";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -73,6 +77,10 @@ namespace ByteCarrot.Datajo.Website.Controllers.Documentation.Miscellaneous
             public const string LongRunningExample = "LongRunningExample";
             public const string HtmlInjectionTypes = "HtmlInjectionTypes";
             public const string EventTypes = "EventTypes";
+            public const string EasingTypes = "EasingTypes";
+            public const string SpecialTargets = "SpecialTargets";
+            public const string AjaxErrors = "AjaxErrors";
+            public const string ActivityIndicator = "ActivityIndicator";
         }
 
 
@@ -86,15 +94,23 @@ namespace ByteCarrot.Datajo.Website.Controllers.Documentation.Miscellaneous
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
+                public readonly string ActivityIndicator = "ActivityIndicator";
+                public readonly string AjaxErrors = "AjaxErrors";
+                public readonly string EasingTypes = "EasingTypes";
                 public readonly string EventTypes = "EventTypes";
                 public readonly string HtmlInjectionTypes = "HtmlInjectionTypes";
                 public readonly string LongRunningExample = "LongRunningExample";
                 public readonly string MultipleActions = "MultipleActions";
+                public readonly string SpecialTargets = "SpecialTargets";
             }
+            public readonly string ActivityIndicator = "~/Views/Miscellaneous/ActivityIndicator.cshtml";
+            public readonly string AjaxErrors = "~/Views/Miscellaneous/AjaxErrors.cshtml";
+            public readonly string EasingTypes = "~/Views/Miscellaneous/EasingTypes.cshtml";
             public readonly string EventTypes = "~/Views/Miscellaneous/EventTypes.cshtml";
             public readonly string HtmlInjectionTypes = "~/Views/Miscellaneous/HtmlInjectionTypes.cshtml";
             public readonly string LongRunningExample = "~/Views/Miscellaneous/LongRunningExample.cshtml";
             public readonly string MultipleActions = "~/Views/Miscellaneous/MultipleActions.cshtml";
+            public readonly string SpecialTargets = "~/Views/Miscellaneous/SpecialTargets.cshtml";
         }
     }
 
@@ -124,6 +140,30 @@ namespace ByteCarrot.Datajo.Website.Controllers.Documentation.Miscellaneous
         public override System.Web.Mvc.ActionResult EventTypes()
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.EventTypes);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult EasingTypes()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.EasingTypes);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult SpecialTargets()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.SpecialTargets);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult AjaxErrors()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.AjaxErrors);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult ActivityIndicator()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.ActivityIndicator);
             return callInfo;
         }
 

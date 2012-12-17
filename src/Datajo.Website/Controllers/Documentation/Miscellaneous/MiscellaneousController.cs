@@ -25,5 +25,25 @@ namespace ByteCarrot.Datajo.Website.Controllers.Documentation.Miscellaneous
         {
             return View();
         }
+
+        public virtual ActionResult EasingTypes()
+        {
+            return View();
+        }
+
+        public virtual ActionResult SpecialTargets()
+        {
+            return View();
+        }
+
+        public virtual ActionResult AjaxErrors()
+        {
+            return View();
+        }
+
+        public virtual ActionResult ActivityIndicator()
+        {
+            return View();
+        }
     }
 }

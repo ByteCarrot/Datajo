@@ -31,14 +31,14 @@
         <td>easing</td>
         <td>no</td>
         <td>linear</td>
-        <td></td>
+        <td>Any valid jQuery / jQuery UI <a href="#">easing type</a></td>
     </tr>
 </table>
 Exmple:
 <pre class="brush: js">
 {
     "action":"show",
-    "target":"#div1",
+    "target":"#box",
     "duration":2000,
     "easing":"easeInBounce"
 }
@@ -48,6 +48,6 @@ Exmple:
 </div>
 <div class="btn-group btn-group" style="margin-top: 20px;">
     <a href="#" class="btn" data-jo='{"action":"show","target":"#box"}'>Click me!</a>
-    <a href="#" class="btn" data-jo='{"action":"show","target":"#box","duration":2000,"easing":"easeInBounce"}'></a>
-    <a href="#" class="btn btn-info" data-jo='{"action":"hide","target":"#div1"}'>Reset</a>
+    <a href="#" class="btn" data-jo='{"action":"show","target":"#box","duration":2000,"easing":"easeInBounce"}'>Click me! duration: 2000, easing: easeInBounce</a>
+    <a href="#" class="btn btn-info" data-jo='{"action":"hide","target":"#box"}'>Reset</a>
 </div>
