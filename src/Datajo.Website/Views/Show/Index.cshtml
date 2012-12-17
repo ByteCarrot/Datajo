@@ -31,7 +31,13 @@
         <td>easing</td>
         <td>no</td>
         <td>linear</td>
-        <td>Any valid jQuery / jQuery UI <a href="#">easing type</a></td>
+        <td>Any valid <a href="@Url.Action(MVC.Miscellaneous.EasingTypes())">jQuery / jQuery UI easing type</a></td>
+    </tr>
+    <tr>
+        <td>event</td>
+        <td>no</td>
+        <td>click</td>
+        <td>Any valid <a href="@Url.Action(MVC.Miscellaneous.EventTypes())">event type</a></td>
     </tr>
 </table>
 Exmple:
@@ -40,7 +46,8 @@ Exmple:
     "action":"show",
     "target":"#box",
     "duration":2000,
-    "easing":"easeInBounce"
+    "easing":"easeInBounce",
+    "event":"click"
 }
 </pre>
 <div class="example-box">
