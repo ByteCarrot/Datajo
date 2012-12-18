@@ -312,7 +312,7 @@ interface JQuery {
      AJAX
     *****/
     ajaxComplete(handler: any): JQuery;
-    ajaxError(handler: (evt: any, xhr: any, opts: any) => any): JQuery;
+    ajaxError(handler: (evt: any, xhr: any, opts: any, thrownError: any) => any): JQuery;
     ajaxSend(handler: (evt: any, xhr: any, opts: any) => any): JQuery;
     ajaxStart(handler: () => any): JQuery;
     ajaxStop(handler: () => any): JQuery;

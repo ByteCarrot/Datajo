@@ -46,9 +46,9 @@ namespace ByteCarrot.Datajo.Website.Controllers.Documentation.Post
 
         [NonAction]
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public System.Web.Mvc.ActionResult PostExample()
+        public System.Web.Mvc.ActionResult Example()
         {
-            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.PostExample);
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Example);
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -67,7 +67,7 @@ namespace ByteCarrot.Datajo.Website.Controllers.Documentation.Post
         public class ActionNamesClass
         {
             public readonly string Index = "Index";
-            public readonly string PostExample = "PostExample";
+            public readonly string Example = "Example";
             public readonly string PostExample2 = "PostExample2";
         }
 
@@ -75,16 +75,16 @@ namespace ByteCarrot.Datajo.Website.Controllers.Documentation.Post
         public class ActionNameConstants
         {
             public const string Index = "Index";
-            public const string PostExample = "PostExample";
+            public const string Example = "Example";
             public const string PostExample2 = "PostExample2";
         }
 
 
-        static readonly ActionParamsClass_PostExample s_params_PostExample = new ActionParamsClass_PostExample();
+        static readonly ActionParamsClass_Example s_params_Example = new ActionParamsClass_Example();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public ActionParamsClass_PostExample PostExampleParams { get { return s_params_PostExample; } }
+        public ActionParamsClass_Example ExampleParams { get { return s_params_Example; } }
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public class ActionParamsClass_PostExample
+        public class ActionParamsClass_Example
         {
             public readonly string textField = "textField";
         }
@@ -106,13 +106,13 @@ namespace ByteCarrot.Datajo.Website.Controllers.Documentation.Post
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
+                public readonly string Example = "Example";
                 public readonly string Index = "Index";
-                public readonly string PostExample = "PostExample";
                 public readonly string PostExample2 = "PostExample2";
                 public readonly string PostExample2Success = "PostExample2Success";
             }
+            public readonly string Example = "~/Views/Post/Example.cshtml";
             public readonly string Index = "~/Views/Post/Index.cshtml";
-            public readonly string PostExample = "~/Views/Post/PostExample.cshtml";
             public readonly string PostExample2 = "~/Views/Post/PostExample2.cshtml";
             public readonly string PostExample2Success = "~/Views/Post/PostExample2Success.cshtml";
         }
@@ -129,9 +129,9 @@ namespace ByteCarrot.Datajo.Website.Controllers.Documentation.Post
             return callInfo;
         }
 
-        public override System.Web.Mvc.ActionResult PostExample(string textField)
+        public override System.Web.Mvc.ActionResult Example(string textField)
         {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.PostExample);
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Example);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "textField", textField);
             return callInfo;
         }

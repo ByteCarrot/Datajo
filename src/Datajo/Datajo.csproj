@@ -23,6 +23,8 @@
     <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="QueryString.ts" />
+    <TypeScriptCompile Include="ErrorHandler.ts" />
     <Content Include="Library\datajo.min.js" />
     <JasmineCompile Include="EventName.spec.ts" />
     <Content Include="Infrastructure\jasmine-html.min.js" />
@@ -62,6 +64,15 @@
     <Content Include="Infrastructure\jasmine.css" />
     <Content Include="Infrastructure\jasmine.html" />
     <Content Include="Infrastructure\jasmine.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

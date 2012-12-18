@@ -9,9 +9,9 @@ namespace ByteCarrot.Datajo.Website.Controllers.Documentation.Post
             return View();
         }
 
-        public virtual ActionResult PostExample(string textField)
+        public virtual ActionResult Example(string textField)
         {
-            return PartialView((object)textField);
+            return PartialView(textField);
         }
 
         [HttpGet]
@@ -23,11 +23,7 @@ namespace ByteCarrot.Datajo.Website.Controllers.Documentation.Post
         [HttpPost]
         public virtual ActionResult PostExample2(PostExample2ViewModel model)
         {
-            if (!ModelState.IsValid)
-            {
-                return PartialView(model);
-            }
-            return PartialView("PostExample2Success", model);
+            return !ModelState.IsValid ? PartialView(model) : PartialView("PostExample2Success", model);
         }
     }
 }

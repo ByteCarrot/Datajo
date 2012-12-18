@@ -5,23 +5,24 @@
     Layout = MVC.Shared.Views._Layout;
 }
 
-<h2>{"action":"<i>post</i>"}</h2>
-<fieldset>
-    <legend>Simplest example</legend>
-    <form id="form1">
-        <div class="row">
-            <div class="span12">
-                <input name="TextField" type="text" value="" class="input-xlarge" placeholder="Add some text and click button below" />
-            </div>
+<h2>Action: <i>post</i></h2>
+<p>
+    Uses jQuery's <a href="http://api.jquery.com/jQuery.post/" target="_blank">$.post()</a> function to post form data and inject returned HTML to the right place.
+</p>
+<form id="form1">
+    <fieldset>
+        <legend>Simplest example</legend>
+        <input name="TextField" type="text" value="" class="input-xlarge" placeholder="Add some text and click button below" />
+        <div class="form-actions">
+            <button type="button" data-jo='{"action":"post","target":"#box1","url":"/action/post/example","form":"#form1"}'>Send</button>
         </div>
-        <div class="row">
-            <div class="span12">
-                <button type="button" data-jo='{"action":"post","target":"#div7","url":"/home/postexample","form":"#form1"}'>data-jo='{"action":"post","target":"#div7","url":"/home/postexample","form":"#form1"}'</button>
-            </div>
-        </div>
-    </form>
-    <div id="div7" class="example-box-get"></div>
-</fieldset>
+        <div id="box1" class="example-box-get"></div>
+    </fieldset>
+</form>
+
+
+
+
 <fieldset>
     <legend>Replace</legend>
     @Html.Partial("PostExample2", new PostExample2ViewModel())

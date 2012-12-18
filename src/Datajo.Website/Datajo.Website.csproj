@@ -300,7 +300,7 @@
     <Content Include="T4MVC.tt.settings.xml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Get\Example.cshtml" />
-    <Content Include="Views\Post\PostExample.cshtml" />
+    <Content Include="Views\Post\Example.cshtml" />
     <Content Include="Views\Post\PostExample2.cshtml" />
     <Content Include="Views\Post\PostExample2Success.cshtml" />
     <Content Include="Views\Miscellaneous\LongRunningExample.cshtml" />

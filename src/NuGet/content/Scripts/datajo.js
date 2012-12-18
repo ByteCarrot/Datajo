@@ -1,3 +1,63 @@
+var QueryString = (function () {
+    function QueryString() { }
+    QueryString.find = function find(key) {
+        var result = {
+        }, queryString = location.search.substring(1), re = /([^&=]+)=([^&]*)/g, m;
+        while(m = re.exec(queryString)) {
+            if(decodeURIComponent(m[1]) === key) {
+                return decodeURIComponent(m[2]);
+            }
+        }
+        return undefined;
+    }
+    return QueryString;
+})();
+var _ = (function () {
+    function _() { }
+    _.isArray = function isArray(data) {
+        return Object.prototype.toString.call(data) === '[object Array]';
+    }
+    _.isString = function isString(data) {
+        return Object.prototype.toString.call(data) == '[object String]';
+    }
+    _.normalize = function normalize(data) {
+        return data.trim().toLowerCase();
+    }
+    return _;
+})();
+var ErrorHandler = (function () {
+    function ErrorHandler() {
+        this.debugMode = QueryString.find('datajo') === 'debug';
+    }
+    ErrorHandler.prototype.prepareMessage = function (event, xhr, options, error) {
+        return '\n\n--- Datajo Ajax Error --- \n' , 'Status:      ' + xhr.status + '\n' + 'Status Text: ' + xhr.statusText + '\n' + 'Response Text:\n' + xhr.responseText + '\n' + '------------------------';
+    };
+    ErrorHandler.prototype.X = function (event, xhr, options, error) {
+        var contentType = xhr.getResponseHeader('Content-Type');
+        var htmlContent = _.isString(contentType) && contentType.toLowerCase().indexOf('text/html') >= 0;
+        var body = $('body');
+        body.prepend('<div id="datajo-debug" style="font-size:.9em;padding:0px;z-index:10000;overflow:auto;position:absolute;top:0px;left:0px;width:100%;height:100%;background-color:#f00;color:#fff">' + '<table style="margin:0px;padding:0px;width:100%;height:100%;border:0px;">' + '<tr>' + '<td style="height:1%; padding:10px 20px 20px 20px;">' + '<button style="float:right;font-weight:bold;color:#fff;background-color:#f00;border:0px;">x</button>' + '<h3 style="margin:0px;padding:0px;">Datajo Ajax Error</h3>' + 'Status: ' + xhr.status + '<br />' + 'Status Text: ' + xhr.statusText + '<br>' + 'Headers: ' + '<div style="margin-left:30px;">' + (xhr.getAllResponseHeaders()).replace(/\n/g, '<br />') + '</div>' + '</td>' + '</tr>' + '<tr>' + '<td>' + '<iframe style="width:100%;height:100%;border:0px;"></iframe>' + '</td>' + '</tr>' + '</table>' + '</div>');
+        var viewer = $('#datajo-debug');
+        var button = viewer.find('button').click(function () {
+            viewer.replaceWith('');
+        });
+        var iframe = viewer.find('iframe').get(0).contentDocument;
+        iframe.open();
+        iframe.write(xhr.responseText);
+        iframe.close();
+    };
+    ErrorHandler.prototype.onAjaxError = function (event, xhr, options, error) {
+        var message = this.prepareMessage(event, xhr, options, error);
+        if(this.debugMode) {
+            this.X(event, xhr, options, error);
+        }
+        if(console === undefined && event.type !== 'ajaxError') {
+            return;
+        }
+        console.error(message);
+    };
+    return ErrorHandler;
+})();
 var Exception = (function () {
     function Exception(message) {
         this.message = message;
@@ -6,19 +66,6 @@ var Exception = (function () {
         return 'Datajo exception: ' + this.message;
     };
     return Exception;
-})();
-var _ = (function () {
-    function _() { }
-    _.isArray = function isArray(data) {
-        return Object.prototype.toString.call(data) === '[object Array]';
-    }
-    _.isString = function isString(data) {
-        return toString.call(data) == '[object String]';
-    }
-    _.normalize = function normalize(data) {
-        return data.trim().toLowerCase();
-    }
-    return _;
 })();
 var EventName = (function () {
     function EventName() { }
@@ -316,8 +363,9 @@ var Runner = (function () {
         $(document).ajaxComplete(function () {
             return _this.onAjaxComplete();
         });
-        $(document).ajaxError(function (e, x, o) {
-            return _this.onAjaxError(e, x, o);
+        this.errorHandler = new ErrorHandler();
+        $(document).ajaxError(function (e, x, o, err) {
+            return _this.errorHandler.onAjaxError(e, x, o, err);
         });
         this.repo = new Repository();
         this.handlers = {
@@ -357,16 +405,10 @@ var Runner = (function () {
         this.update();
         this.activityIndicator.hide();
     };
-    Runner.prototype.onAjaxError = function (event, xhr, options) {
-        if(console === undefined && event.type !== 'ajaxError') {
-            return;
-        }
-        console.error('--- Datajo Ajax Error --- \n', 'Status:      ' + xhr.status + '\n' + 'Status Text: ' + xhr.statusText + '\n' + 'Response Text:\n' + xhr.responseText + '\n' + '------------------------');
-    };
     Runner.prototype.findData = function (element) {
         for(var i in element.attributes) {
             var attribute = element.attributes[i];
-            if(attribute.name !== 'data-jo') {
+            if(attribute === undefined || attribute.name !== 'data-jo') {
                 continue;
             }
             var obj = JSON.parse(attribute.value);

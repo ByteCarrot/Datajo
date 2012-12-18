@@ -5,16 +5,20 @@
 /// <reference path="GetActionHandler.ts" />
 /// <reference path="PostActionHandler.ts" />
 /// <reference path="EventName.ts" />
+/// <reference path="ErrorHandler.ts" />
 
 class Runner {
     private repo: Repository;
     private handlers: any;
     private events: any;
     private activityIndicator: ActivityIndicator;
+    private errorHandler: ErrorHandler;
     constructor() {
         $(document).ajaxStart(() => this.onAjaxStart());
         $(document).ajaxComplete(() => this.onAjaxComplete());
-        $(document).ajaxError((e: any, x: any, o: any) => this.onAjaxError(e, x, o));
+
+        this.errorHandler = new ErrorHandler();
+        $(document).ajaxError((e: any, x: any, o: any, err: any) => this.errorHandler.onAjaxError(e, x, o, err));
 
         this.repo = new Repository();
         this.handlers = {
@@ -56,22 +60,10 @@ class Runner {
         this.activityIndicator.hide();
     }
 
-    public onAjaxError(event: any, xhr: any, options: any) {
-        if (console === undefined && event.type !== 'ajaxError') {
-            return;
-        }
-        console.error(
-            '--- Datajo Ajax Error --- \n',
-            'Status:      ' + xhr.status + '\n' +
-            'Status Text: ' + xhr.statusText + '\n' +
-            'Response Text:\n' + xhr.responseText + '\n' +
-            '------------------------');
-    }
-
     private findData(element: Element): any {
         for (var i in element.attributes) {
             var attribute = element.attributes[i];
-            if (attribute.name !== 'data-jo') {
+            if (attribute === undefined || attribute.name !== 'data-jo') {
                 continue;
             }
             var obj = JSON.parse(attribute.value);
