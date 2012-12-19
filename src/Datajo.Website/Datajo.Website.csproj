@@ -257,9 +257,11 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\datajo.js.map" />
     <None Include="Scripts\jquery-1.8.3.intellisense.js" />
     <Content Include="Scripts\datajo.js" />
     <Content Include="Scripts\datajo.min.js" />
+    <Content Include="Scripts\datajo.ts" />
     <Content Include="Scripts\jquery-1.8.3.intellisense.min.js" />
     <Content Include="Scripts\jquery-1.8.3.js" />
     <Content Include="Scripts\jquery-1.8.3.min.js" />

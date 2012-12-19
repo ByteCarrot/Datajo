@@ -1,5 +1,7 @@
 /// <reference path="Infrastructure/jasmine.d.ts" />
-/// <reference path="EventName.ts" />
+/// <reference path="datajo.ts" />
+
+var EventName = Datajo.EventName;
 
 describe("EventName", () => {
 

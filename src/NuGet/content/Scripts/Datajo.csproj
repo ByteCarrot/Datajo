@@ -120,13 +120,8 @@
   <Target Name="AfterBuild">
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>xcopy /Q /Y "$(ProjectDir)datajo.*js" "$(SolutionDir)NuGet\content\Scripts"
-xcopy /Q /Y "$(ProjectDir)datajo.*map" "$(SolutionDir)NuGet\content\Scripts"
-xcopy /Q /Y "$(ProjectDir)datajo.*ts" "$(SolutionDir)NuGet\content\Scripts"
-
-xcopy /Q /Y "$(ProjectDir)datajo.*js" "$(SolutionDir)Datajo.Website\Scripts"
-xcopy /Q /Y "$(ProjectDir)datajo.*map" "$(SolutionDir)Datajo.Website\Scripts"
-xcopy /Q /Y "$(ProjectDir)datajo.*ts" "$(SolutionDir)Datajo.Website\Scripts"</PostBuildEvent>
+    <PostBuildEvent>xcopy /Q /Y "$(ProjectDir)datajo.*" "$(SolutionDir)NuGet\content\Scripts"
+xcopy /Q /Y "$(ProjectDir)datajo.*" "$(SolutionDir)Datajo.Website\Scripts"</PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
 </Project>
