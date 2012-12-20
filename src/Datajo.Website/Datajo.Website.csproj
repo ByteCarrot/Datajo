@@ -257,16 +257,47 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\datajo.js.map" />
+    <Content Include="Scripts\datajo.js.map">
+      <DependentUpon>datajo.ts</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.8.3.intellisense.js" />
-    <Content Include="Scripts\datajo.js" />
-    <Content Include="Scripts\datajo.min.js" />
-    <Content Include="Scripts\datajo.ts" />
+    <Content Include="Scripts\datajo.js">
+      <DependentUpon>datajo.ts</DependentUpon>
+    </Content>
+    <Content Include="Scripts\datajo.min.js">
+      <DependentUpon>datajo.ts</DependentUpon>
+    </Content>
+    <CodeAnalysisDictionary Include="Scripts\datajo.ts" />
+    <Content Include="Scripts\jasmine-html.js" />
+    <Content Include="Scripts\jasmine-html.min.js" />
+    <Content Include="Content\jasmine.css" />
+    <Content Include="Scripts\jasmine.d.ts" />
+    <Content Include="jasmine.html" />
+    <Content Include="Scripts\jasmine.js" />
+    <Content Include="Content\jasmine.min.css" />
+    <Content Include="Scripts\jasmine.min.js" />
     <Content Include="Scripts\jquery-1.8.3.intellisense.min.js" />
     <Content Include="Scripts\jquery-1.8.3.js" />
     <Content Include="Scripts\jquery-1.8.3.min.js" />
     <Content Include="Scripts\jquery-ui-1.9.2.js" />
     <Content Include="Scripts\jquery-ui-1.9.2.min.js" />
+    <CodeAnalysisDictionary Include="Scripts\Specs\EventName.spec.ts" />
+    <CodeAnalysisDictionary Include="Scripts\jquery.d.ts" />
+    <Content Include="Scripts\specs.js" />
+    <Content Include="Scripts\specs.min.js" />
+    <Content Include="Scripts\Specs\EventName.spec.js">
+      <DependentUpon>EventName.spec.ts</DependentUpon>
+    </Content>
+    <Content Include="Scripts\Specs\EventName.spec.min.js">
+      <DependentUpon>EventName.spec.ts</DependentUpon>
+    </Content>
+    <CodeAnalysisDictionary Include="Scripts\Specs\Underscore.spec.ts" />
+    <Content Include="Scripts\Specs\Underscore.spec.js">
+      <DependentUpon>Underscore.spec.ts</DependentUpon>
+    </Content>
+    <Content Include="Scripts\Specs\Underscore.spec.min.js">
+      <DependentUpon>Underscore.spec.ts</DependentUpon>
+    </Content>
     <Content Include="Scripts\SyntaxHighlighter\shAutoloader.js" />
     <Content Include="Scripts\SyntaxHighlighter\shBrushAppleScript.js" />
     <Content Include="Scripts\SyntaxHighlighter\shBrushAS3.js" />
@@ -329,6 +360,12 @@
     <Content Include="Views\Miscellaneous\SpecialTargets.cshtml" />
     <Content Include="Views\Miscellaneous\AjaxErrors.cshtml" />
     <Content Include="Views\Miscellaneous\ActivityIndicator.cshtml" />
+    <Content Include="Scripts\Specs\EventName.spec.js.map">
+      <DependentUpon>EventName.spec.ts</DependentUpon>
+    </Content>
+    <Content Include="Scripts\Specs\Underscore.spec.js.map">
+      <DependentUpon>Underscore.spec.ts</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Datajo.Mvc\Datajo.Mvc.csproj">
@@ -382,8 +419,10 @@
     <AjaxMin JsSourceFiles="@(JS)" JsSourceExtensionPattern="\.js$" JsTargetExtension=".min.js" CssSourceFiles="@(CSS)" CssSourceExtensionPattern="\.css$" CssTargetExtension=".min.css" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>xcopy /Q /Y "$(ProjectDir)Scripts\datajo.ts" "$(SolutionDir)NuGet\content\Scripts"
+xcopy /Q /Y "$(ProjectDir)Scripts\datajo.js" "$(SolutionDir)NuGet\content\Scripts"
+xcopy /Q /Y "$(ProjectDir)Scripts\datajo.min.js" "$(SolutionDir)NuGet\content\Scripts"
+xcopy /Q /Y "$(ProjectDir)Scripts\datajo.js.map" "$(SolutionDir)NuGet\content\Scripts"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>

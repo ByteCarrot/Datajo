@@ -1,7 +1,9 @@
-/// <reference path="Infrastructure/jquery.d.ts" />
+/// <reference path="jquery.d.ts" />
 
 module Datajo {
-
+    class Test {
+        lalalala: number;
+    }
     class Action {
         constructor(action: string, sender: Element, data: any) {
             if (data.action !== action) {

@@ -1215,7 +1215,7 @@ jQuery.extend({
 
 			progressValues, progressContexts, resolveContexts;
 
-		// add listeners to Deferred subordinates; treat Miscellaneous as resolved
+		// add listeners to Deferred subordinates; treat others as resolved
 		if ( length > 1 ) {
 			progressValues = new Array( length );
 			progressContexts = new Array( length );
@@ -3933,7 +3933,7 @@ function Sizzle( selector, context, results, seed ) {
 		}
 	}
 
-	// All Miscellaneous
+	// All others
 	return select( selector.replace( rtrim, "$1" ), context, results, seed, xml );
 }
 
@@ -4459,7 +4459,7 @@ Expr = Sizzle.selectors = {
 		"empty": function( elem ) {
 			// http://www.w3.org/TR/selectors/#empty-pseudo
 			// :empty is only affected by element nodes and content nodes(including text(3), cdata(4)),
-			//   not comment, processing instructions, or Miscellaneous
+			//   not comment, processing instructions, or others
 			// Thanks to Diego Perini for the nodeName shortcut
 			//   Greater than "@" means alpha characters (specifically not starting with "#" or "?")
 			var nodeType;

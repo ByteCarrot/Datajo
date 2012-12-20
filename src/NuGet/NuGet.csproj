@@ -47,6 +47,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="BuildPublishPackage.cmd" />
+    <None Include="content\Scripts\datajo.js.map" />
     <None Include="Package.nuspec">
       <SubType>Designer</SubType>
     </None>
@@ -63,8 +64,9 @@
   <ItemGroup>
     <Content Include="content\Scripts\datajo.js" />
     <Content Include="content\Scripts\datajo.min.js" />
-    <Content Include="lib\40\ByteCarrot.Datajo.dll" />
-    <Content Include="lib\45\ByteCarrot.Datajo.dll" />
+    <Content Include="content\Scripts\datajo.ts" />
+    <Content Include="lib\40\ByteCarrot.Datajo.Mvc.dll" />
+    <Content Include="lib\45\ByteCarrot.Datajo.Mvc.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
