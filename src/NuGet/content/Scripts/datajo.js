@@ -5,10 +5,6 @@ var __extends = this.__extends || function (d, b) {
 };
 var Datajo;
 (function (Datajo) {
-    var Test = (function () {
-        function Test() { }
-        return Test;
-    })();    
     var Action = (function () {
         function Action(action, sender, data) {
             if(data.action !== action) {
