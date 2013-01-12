@@ -1,6 +1,4 @@
-﻿using System.Threading;
-using System.Web.Mvc;
-using ByteCarrot.Datajo.Website.Controllers.Documentation.Post;
+﻿using System.Web.Mvc;
 
 namespace ByteCarrot.Datajo.Website.Controllers.Home
 {
@@ -10,11 +8,5 @@ namespace ByteCarrot.Datajo.Website.Controllers.Home
         {
             return View();
         }
-
-        
-
-        
-
-        
     }
 }

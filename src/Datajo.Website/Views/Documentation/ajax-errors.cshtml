@@ -1,0 +1,11 @@
+﻿@using ByteCarrot.Datajo.Website
+@model dynamic
+
+@{
+    Layout = MVC.Shared.Views._Layout;
+}
+
+<h2>AJAX errors</h2>
+<button class="btn" data-jo='{"action":"get","target":"_self","url":"/not-existing-url","inject":"replaceContent"}'>
+    Go
+</button>

@@ -9,18 +9,12 @@ namespace ByteCarrot.Datajo.Website.App_Start
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            routes.MapRouteLowercase("Action", "action/{controller}/{action}/{id}", 
-                new {
-                        action = "Index", 
-                        id = UrlParameter.Optional
-                    },
-                new { controller = new ListConstraint { "show", "hide", "get", "post" } });
+
+            routes.MapRouteLowercase("Documentation", "documentation/{view}", 
+                new { controller = "Documentation", action = "Index", id = UrlParameter.Optional });
+            
             routes.MapRouteLowercase("Default", "{controller}/{action}/{id}", 
-                new {
-                        controller = "Home", 
-                        action = "Index", 
-                        id = UrlParameter.Optional
-                    });
+                new { controller = "Home", action = "Index", id = UrlParameter.Optional });
         }
     }
 }

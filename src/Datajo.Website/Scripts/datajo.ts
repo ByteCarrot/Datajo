@@ -86,7 +86,7 @@ module Datajo {
                 'Response Text:\n' + xhr.responseText + '\n' +
                 '------------------------';
         }
-        private X(event: any, xhr: any, options: any, error: any) {
+        private showError(event: any, xhr: any, options: any, error: any) {
             var contentType: string = xhr.getResponseHeader('Content-Type');
             var htmlContent = _.isString(contentType) && contentType.toLowerCase().indexOf('text/html') >= 0;
 
@@ -139,14 +139,16 @@ module Datajo {
             viewer.find('iframe').height(wh - viewer.find('td:first').height() - 60);
         }
         public onAjaxError(event: any, xhr: any, options: any, error: any): any {
-            var message = this.prepareMessage(event, xhr, options, error);
-            if (this.debugMode) {
-                this.X(event, xhr, options, error);
-            }
-            if (console === undefined && event.type !== 'ajaxError') {
+            if (event.type !== 'ajaxError') {
                 return;
             }
-            console.error(message);
+            if (this.debugMode) {
+                this.showError(event, xhr, options, error);
+            }
+            if (console === undefined) {
+                return;
+            }
+            console.error(this.prepareMessage(event, xhr, options, error));
         }
     }
 

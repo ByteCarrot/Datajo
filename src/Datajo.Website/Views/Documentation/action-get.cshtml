@@ -1,4 +1,5 @@
-﻿@model dynamic
+﻿@using ByteCarrot.Datajo.Website
+@model dynamic
 
 @{
     Layout = MVC.Shared.Views._Layout;
@@ -32,14 +33,14 @@
         <td>inject</td>
         <td>no</td>
         <td>replaceContent</td>
-        <td>Any valid <a href="@Url.Action(MVC.Miscellaneous.HtmlInjectionTypes())">HTML injection type</a>
+        <td>Any valid <a href="/documentation/html-injection-types">HTML injection type</a>
         </td>
     </tr>
     <tr>
         <td>event</td>
         <td>no</td>
         <td>click</td>
-        <td>Any valid <a href="@Url.Action(MVC.Miscellaneous.EventTypes())">event type</a>
+        <td>Any valid <a href="/documentation/event-types">event type</a>
         </td>
     </tr>
 </table>
@@ -56,10 +57,10 @@ Exmple:
 
 <div id="box" class="example-box-get"></div>
 <div class="btn-group btn-group" style="margin-top: 20px;">
-    <a href="#" class="btn" data-jo='{"action":"get","target":"#box","url":"/action/get/example","inject":"afterContent"}'>
+    <a href="#" class="btn" data-jo='{"action":"get","target":"#box","url":"/examples/get","inject":"afterContent"}'>
         Click me!
     </a>
-    <a href="#" class="btn btn-info" data-jo='{"action":"get","target":"#box","url":"/action/get/example","inject":"replaceContent"}'>
+    <a href="#" class="btn btn-info" data-jo='{"action":"get","target":"#box","url":"/examples/get","inject":"replaceContent"}'>
         Reset
     </a>
 </div>

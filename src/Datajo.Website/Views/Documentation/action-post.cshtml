@@ -1,0 +1,57 @@
+﻿@using ByteCarrot.Datajo.Website.Controllers.Examples
+@model dynamic
+
+@{
+    Layout = MVC.Shared.Views._Layout;
+}
+
+<h2>Action: <i>post</i></h2>
+<p>
+    Uses jQuery's <a href="http://api.jquery.com/jQuery.post/" target="_blank">$.post()</a> function to post form data and inject returned HTML to the right place.
+</p>
+<form id="form1">
+    <fieldset>
+        <legend>Simplest example</legend>
+        <input name="text" type="text" value="" class="input-xlarge" placeholder="Add some text and click button below" />
+        <div class="form-actions">
+            <button class="btn" type="button" data-jo='{"action":"post","target":"#box1","url":"/examples/post","form":"#form1"}'>Send</button>
+        </div>
+        <div id="box1" class="example-box-get"></div>
+    </fieldset>
+</form>
+
+<fieldset>
+    <legend>Replace</legend>
+    @Html.Partial(MVC.Examples.Views.Form, new FormViewModel())
+</fieldset>
+
+<form id="form3">
+    <fieldset>
+        <legend>Confirmations</legend>
+        <input name="text" type="text" value="" class="input-xlarge" placeholder="Add some text and click button below" />
+        <div class="form-actions">
+            <button class="btn" type="button" data-jo='{"action":"post","target":"#box3","url":"/examples/post","form":"#form3","confirm":"Are you sure?"}'>Send</button>
+        </div>
+        <div id="box3" class="example-box-get"></div>
+    </fieldset>
+</form>
+
+
+@*<fieldset>
+    <legend>Confirmations</legend>
+    <form id="form3">
+        <div class="row">
+            <div class="span12">
+                <input name="text" type="text" value="" class="input-xlarge" placeholder="Add some text and click button below" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <div class="btn-group btn-group-vertical" style="margin-top: 20px;">
+                    <button class="btn" type="button" data-jo='{"action":"post","target":"#div8","url":"/examples/post","form":"#form3","confirm":"Are you sure?"}'>Send</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div id="div8" class="example-box-get"></div>
+</fieldset>*@

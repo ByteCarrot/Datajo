@@ -5,6 +5,10 @@ var __extends = this.__extends || function (d, b) {
 };
 var Datajo;
 (function (Datajo) {
+    var Test = (function () {
+        function Test() { }
+        return Test;
+    })();    
     var Action = (function () {
         function Action(action, sender, data) {
             if(data.action !== action) {
@@ -88,7 +92,7 @@ var Datajo;
         ErrorHandler.prototype.prepareMessage = function (event, xhr, options, error) {
             return '\n\n--- Datajo Ajax Error --- \n' , 'Status:      ' + xhr.status + '\n' + 'Status Text: ' + xhr.statusText + '\n' + 'Response Text:\n' + xhr.responseText + '\n' + '------------------------';
         };
-        ErrorHandler.prototype.X = function (event, xhr, options, error) {
+        ErrorHandler.prototype.showError = function (event, xhr, options, error) {
             var contentType = xhr.getResponseHeader('Content-Type');
             var htmlContent = _.isString(contentType) && contentType.toLowerCase().indexOf('text/html') >= 0;
             var body = $('body');
@@ -115,14 +119,16 @@ var Datajo;
             viewer.find('iframe').height(wh - viewer.find('td:first').height() - 60);
         };
         ErrorHandler.prototype.onAjaxError = function (event, xhr, options, error) {
-            var message = this.prepareMessage(event, xhr, options, error);
-            if(this.debugMode) {
-                this.X(event, xhr, options, error);
-            }
-            if(console === undefined && event.type !== 'ajaxError') {
+            if(event.type !== 'ajaxError') {
                 return;
             }
-            console.error(message);
+            if(this.debugMode) {
+                this.showError(event, xhr, options, error);
+            }
+            if(console === undefined) {
+                return;
+            }
+            console.error(this.prepareMessage(event, xhr, options, error));
         };
         return ErrorHandler;
     })();    

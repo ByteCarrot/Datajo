@@ -1,12 +1,13 @@
-﻿@model dynamic
+﻿@using ByteCarrot.Datajo.Website
+@model dynamic
 
 @{
     Layout = MVC.Shared.Views._Layout;
 }
 
-<h2>Action: <i>show</i></h2>
+<h2>Action: <i>hide</i></h2>
 <p>
-    Uses jQuery's <a href="http://api.jquery.com/show/" target="_blank">.show()</a> function to show HTML element specified as a target.
+    Uses jQuery's <a href="http://api.jquery.com/hide/" target="_blank">.hide()</a> function to hide HTML element specified as a target.
 </p>
 <table class="table table-bordered table-hover">
     <tr>
@@ -31,19 +32,19 @@
         <td>easing</td>
         <td>no</td>
         <td>linear</td>
-        <td>Any valid <a href="@Url.Action(MVC.Miscellaneous.EasingTypes())">jQuery / jQuery UI easing type</a></td>
+        <td>Any valid <a href="/documentation/easing-types">jQuery / jQuery UI easing type</a></td>
     </tr>
     <tr>
         <td>event</td>
         <td>no</td>
         <td>click</td>
-        <td>Any valid <a href="@Url.Action(MVC.Miscellaneous.EventTypes())">event type</a></td>
+        <td>Any valid <a href="/documentation/event-types">event type</a></td>
     </tr>
 </table>
 Exmple:
 <pre class="brush: js">
 {
-    "action":"show",
+    "action":"hide",
     "target":"#box",
     "duration":2000,
     "easing":"easeInBounce",
@@ -51,10 +52,10 @@ Exmple:
 }
 </pre>
 <div class="example-box">
-    <div id="box" style="display: none"></div>
+    <div id="box"></div>
 </div>
 <div class="btn-group btn-group" style="margin-top: 20px;">
-    <a href="#" class="btn" data-jo='{"action":"show","target":"#box"}'>Click me!</a>
-    <a href="#" class="btn" data-jo='{"action":"show","target":"#box","duration":2000,"easing":"easeInBounce"}'>Click me! duration: 2000, easing: easeInBounce</a>
-    <a href="#" class="btn btn-info" data-jo='{"action":"hide","target":"#box"}'>Reset</a>
+    <a href="#" class="btn" data-jo='{"action":"hide","target":"#box"}'>Click me!</a>
+    <a href="#" class="btn" data-jo='{"action":"hide","target":"#box","duration":2000,"easing":"easeInBounce"}'>Click me! duration: 2000, easing: easeInBounce</a>
+    <a href="#" class="btn btn-info" data-jo='{"action":"show","target":"#box"}'>Reset</a>
 </div>

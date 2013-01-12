@@ -24,11 +24,8 @@ using T4MVC;
 [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
 public static class MVC
 {
-    public static ByteCarrot.Datajo.Website.Controllers.Documentation.Get.GetController Get = new ByteCarrot.Datajo.Website.Controllers.Documentation.Get.T4MVC_GetController();
-    public static ByteCarrot.Datajo.Website.Controllers.Documentation.Hide.HideController Hide = new ByteCarrot.Datajo.Website.Controllers.Documentation.Hide.T4MVC_HideController();
-    public static ByteCarrot.Datajo.Website.Controllers.Documentation.Miscellaneous.MiscellaneousController Miscellaneous = new ByteCarrot.Datajo.Website.Controllers.Documentation.Miscellaneous.T4MVC_MiscellaneousController();
-    public static ByteCarrot.Datajo.Website.Controllers.Documentation.Post.PostController Post = new ByteCarrot.Datajo.Website.Controllers.Documentation.Post.T4MVC_PostController();
-    public static ByteCarrot.Datajo.Website.Controllers.Documentation.Show.ShowController Show = new ByteCarrot.Datajo.Website.Controllers.Documentation.Show.T4MVC_ShowController();
+    public static ByteCarrot.Datajo.Website.Controllers.Documentation.DocumentationController Documentation = new ByteCarrot.Datajo.Website.Controllers.Documentation.T4MVC_DocumentationController();
+    public static ByteCarrot.Datajo.Website.Controllers.Examples.ExamplesController Examples = new ByteCarrot.Datajo.Website.Controllers.Examples.T4MVC_ExamplesController();
     public static ByteCarrot.Datajo.Website.Controllers.Home.HomeController Home = new ByteCarrot.Datajo.Website.Controllers.Home.T4MVC_HomeController();
     public static T4MVC.SharedController Shared = new T4MVC.SharedController();
 }
@@ -75,9 +72,18 @@ namespace Links
         public static readonly string bootstrap_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap.min.js") ? Url("bootstrap.min.js") : Url("bootstrap.js");
                       
         public static readonly string bootstrap_min_js = Url("bootstrap.min.js");
+        public static readonly string datajo_ts = Url("datajo.ts");
         public static readonly string datajo_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/datajo.min.js") ? Url("datajo.min.js") : Url("datajo.js");
                       
+        public static readonly string datajo_js_map = Url("datajo.js.map");
         public static readonly string datajo_min_js = Url("datajo.min.js");
+        public static readonly string jasmine_html_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jasmine-html.min.js") ? Url("jasmine-html.min.js") : Url("jasmine-html.js");
+                      
+        public static readonly string jasmine_html_min_js = Url("jasmine-html.min.js");
+        public static readonly string jasmine_d_ts = Url("jasmine.d.ts");
+        public static readonly string jasmine_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jasmine.min.js") ? Url("jasmine.min.js") : Url("jasmine.js");
+                      
+        public static readonly string jasmine_min_js = Url("jasmine.min.js");
         public static readonly string jquery_1_8_3_intellisense_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-1.8.3.intellisense.min.js") ? Url("jquery-1.8.3.intellisense.min.js") : Url("jquery-1.8.3.intellisense.js");
                       
         public static readonly string jquery_1_8_3_intellisense_min_js = Url("jquery-1.8.3.intellisense.min.js");
@@ -87,6 +93,27 @@ namespace Links
         public static readonly string jquery_ui_1_9_2_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-ui-1.9.2.min.js") ? Url("jquery-ui-1.9.2.min.js") : Url("jquery-ui-1.9.2.js");
                       
         public static readonly string jquery_ui_1_9_2_min_js = Url("jquery-ui-1.9.2.min.js");
+        public static readonly string jquery_d_ts = Url("jquery.d.ts");
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public static class Specs {
+            private const string URLPATH = "~/Scripts/Specs";
+            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+            public static readonly string EventName_spec_ts = Url("EventName.spec.ts");
+            public static readonly string EventName_spec_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/EventName.spec.min.js") ? Url("EventName.spec.min.js") : Url("EventName.spec.js");
+                          
+            public static readonly string EventName_spec_js_map = Url("EventName.spec.js.map");
+            public static readonly string EventName_spec_min_js = Url("EventName.spec.min.js");
+            public static readonly string Underscore_spec_ts = Url("Underscore.spec.ts");
+            public static readonly string Underscore_spec_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/Underscore.spec.min.js") ? Url("Underscore.spec.min.js") : Url("Underscore.spec.js");
+                          
+            public static readonly string Underscore_spec_js_map = Url("Underscore.spec.js.map");
+            public static readonly string Underscore_spec_min_js = Url("Underscore.spec.min.js");
+        }
+    
+        public static readonly string specs_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/specs.min.js") ? Url("specs.min.js") : Url("specs.js");
+                      
+        public static readonly string specs_min_js = Url("specs.min.js");
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public static class SyntaxHighlighter {
             private const string URLPATH = "~/Scripts/SyntaxHighlighter";
@@ -174,6 +201,9 @@ namespace Links
             public static readonly string logo_small_png = Url("logo-small.png");
         }
     
+        public static readonly string jasmine_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jasmine.min.css") ? Url("jasmine.min.css") : Url("jasmine.css");
+             
+        public static readonly string jasmine_min_css = Url("jasmine.min.css");
         public static readonly string style_less = Url("style.less");
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public static class SyntaxHighlighter {

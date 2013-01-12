@@ -1,0 +1,9 @@
+﻿@model ByteCarrot.Datajo.Website.Controllers.Examples.FormViewModel
+
+<div id="success">
+    Success! Your form has been saved!<br />
+    <h2>@Model.Text</h2>
+    <div class="form-actions">
+        <button class="btn btn-info" type="button" data-jo='{"action":"get","target":"#success","url":"/examples/form","inject":"replaceTarget"}'>Reset</button>
+    </div>
+</div>
