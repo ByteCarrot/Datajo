@@ -1,4 +1,7 @@
-﻿h2 i {
+﻿body {
+  font-family: Century Gothic, sans-serif;
+}
+h2 i {
   color: #f00;
   font-style: normal;
 }
