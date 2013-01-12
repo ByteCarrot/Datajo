@@ -37,6 +37,12 @@
         </td>
     </tr>
     <tr>
+        <td>confirm</td>
+        <td>no</td>
+        <td></td>
+        <td>Text for a confirmation dialog window.</td>
+    </tr>
+    <tr>
         <td>event</td>
         <td>no</td>
         <td>click</td>
@@ -51,16 +57,20 @@ Exmple:
     "target":"#box",
     "url":"http://example.com/sample",
     "inject":"afterContent",
+    "confirm":"Are you sure?",
     "event":"click"
 }
 </pre>
 
-<div id="box" class="example-box-get"></div>
+<div id="box1" class="example-box-get"></div>
 <div class="btn-group btn-group" style="margin-top: 20px;">
-    <a href="#" class="btn" data-jo='{"action":"get","target":"#box","url":"/examples/get","inject":"afterContent"}'>
+    <a href="#" class="btn" data-jo='{"action":"get","target":"#box1","url":"/examples/get","inject":"afterContent"}'>
         Click me!
     </a>
-    <a href="#" class="btn btn-info" data-jo='{"action":"get","target":"#box","url":"/examples/get","inject":"replaceContent"}'>
+    <a href="#" class="btn" data-jo='{"action":"get","target":"#box1","url":"/examples/get","inject":"afterContent","confirm":"Are you sure?"}'>
+        Click and confirm!
+    </a>
+    <a href="#" class="btn btn-info" data-jo='{"action":"get","target":"#box1","url":"/examples/get","inject":"replaceContent"}'>
         Reset
     </a>
 </div>

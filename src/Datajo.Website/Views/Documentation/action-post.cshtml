@@ -9,6 +9,66 @@
 <p>
     Uses jQuery's <a href="http://api.jquery.com/jQuery.post/" target="_blank">$.post()</a> function to post form data and inject returned HTML to the right place.
 </p>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>Parameter</th>
+        <th>Required</th>
+        <th>Default</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>target</td>
+        <td>yes</td>
+        <td></td>
+        <td>Any valid jQuery selector representing unique HTML element where HTML from a server will be injected</td>
+    </tr>
+    <tr>
+        <td>form</td>
+        <td>yes</td>
+        <td></td>
+        <td>Any valid jQuery selector representing unique HTML form element which data should be send to a server</td>
+    </tr>
+    <tr>
+        <td>url</td>
+        <td>yes</td>
+        <td></td>
+        <td>Any valid URL returning a HTML code
+        </td>
+    </tr>
+    <tr>
+        <td>inject</td>
+        <td>no</td>
+        <td>replaceContent</td>
+        <td>Any valid <a href="/documentation/html-injection-types">HTML injection type</a>
+        </td>
+    </tr>
+    <tr>
+        <td>confirm</td>
+        <td>no</td>
+        <td></td>
+        <td>Text for a confirmation dialog window.</td>
+    </tr>
+    <tr>
+        <td>event</td>
+        <td>no</td>
+        <td>click</td>
+        <td>Any valid <a href="/documentation/event-types">event type</a>
+        </td>
+    </tr>
+</table>
+Exmple:
+<pre class="brush: js">
+{
+    "action":"get",
+    "target":"#box",
+    "form":"#form1",
+    "url":"http://example.com/sample",
+    "inject":"afterContent",
+    "confirm":"Are you sure?",
+    "event":"click"
+}
+</pre>
+
 <form id="form1">
     <fieldset>
         <legend>Simplest example</legend>
@@ -35,23 +95,3 @@
         <div id="box3" class="example-box-get"></div>
     </fieldset>
 </form>
-
-
-@*<fieldset>
-    <legend>Confirmations</legend>
-    <form id="form3">
-        <div class="row">
-            <div class="span12">
-                <input name="text" type="text" value="" class="input-xlarge" placeholder="Add some text and click button below" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="span12">
-                <div class="btn-group btn-group-vertical" style="margin-top: 20px;">
-                    <button class="btn" type="button" data-jo='{"action":"post","target":"#div8","url":"/examples/post","form":"#form3","confirm":"Are you sure?"}'>Send</button>
-                </div>
-            </div>
-        </div>
-    </form>
-    <div id="div8" class="example-box-get"></div>
-</fieldset>*@
