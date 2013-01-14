@@ -1,5 +1,7 @@
 ﻿body {
   font-family: Century Gothic, sans-serif;
+  padding-top: 70px;
+  padding-bottom: 40px;
 }
 h2 i {
   color: #f00;
@@ -29,7 +31,8 @@ h2 i {
 .nav-list > li > a {
   padding-left: 25px;
 }
-.field-validation-error {
+.field-validation-error,
+label.error {
   color: #8B0000;
   display: block;
 }

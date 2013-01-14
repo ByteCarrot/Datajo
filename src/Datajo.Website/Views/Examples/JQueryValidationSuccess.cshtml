@@ -1,0 +1,9 @@
+﻿@model dynamic
+
+<div id="success">
+    Success! Your email is:<br />
+    <h2>@Model.Text</h2>
+    <div class="form-actions">
+        <button class="btn btn-info" type="button" data-jo='{"action":"get","target":"#success","url":"/examples/jqueryvalidation","inject":"replaceTarget"}'>Reset</button>
+    </div>
+</div>

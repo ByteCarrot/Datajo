@@ -94,6 +94,14 @@ namespace Links
                       
         public static readonly string jquery_ui_1_9_2_min_js = Url("jquery-ui-1.9.2.min.js");
         public static readonly string jquery_d_ts = Url("jquery.d.ts");
+        public static readonly string jquery_validate_vsdoc_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.validate-vsdoc.min.js") ? Url("jquery.validate-vsdoc.min.js") : Url("jquery.validate-vsdoc.js");
+                      
+        public static readonly string jquery_validate_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.validate.min.js") ? Url("jquery.validate.min.js") : Url("jquery.validate.js");
+                      
+        public static readonly string jquery_validate_min_js = Url("jquery.validate.min.js");
+        public static readonly string jquery_validate_unobtrusive_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.validate.unobtrusive.min.js") ? Url("jquery.validate.unobtrusive.min.js") : Url("jquery.validate.unobtrusive.js");
+                      
+        public static readonly string jquery_validate_unobtrusive_min_js = Url("jquery.validate.unobtrusive.min.js");
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public static class Specs {
             private const string URLPATH = "~/Scripts/Specs";
@@ -205,6 +213,9 @@ namespace Links
              
         public static readonly string jasmine_min_css = Url("jasmine.min.css");
         public static readonly string style_less = Url("style.less");
+        public static readonly string style_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/style.min.css") ? Url("style.min.css") : Url("style.css");
+             
+        public static readonly string style_min_css = Url("style.min.css");
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public static class SyntaxHighlighter {
             private const string URLPATH = "~/Content/SyntaxHighlighter";

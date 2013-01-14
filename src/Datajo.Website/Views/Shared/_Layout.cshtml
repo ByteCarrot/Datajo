@@ -4,17 +4,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width" />
     <title>Datajo</title>
-    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/SyntaxHighlighter/shThemeDefault.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="~/Content/style.less" />
+    <link href="~/Content/style.less" rel="stylesheet" type="text/css" />
     
-    <style type="text/css">
-        body {
-            padding-top: 70px;
-            padding-bottom: 40px;
-        }
-    </style>
+    <script type="text/javascript" src="~/Scripts/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-ui-1.9.2.min.js"></script>
+    @RenderSection("jQueryPlugins", false)
+    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/SyntaxHighlighter/shCore.js"></script>
+    <script type="text/javascript" src="~/Scripts/SyntaxHighlighter/shBrushXml.js"></script>
+    <script type="text/javascript" src="~/Scripts/SyntaxHighlighter/shBrushJScript.js"></script>
+    <script type="text/javascript" src="~/Scripts/datajo.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all()
+    </script>
+
 </head>
 <body data-jo-config='{"activityIndicator":"#loader"}'>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -49,6 +56,8 @@
                         <li><a href="/documentation/special-targets">Special targets</a></li>
                         <li><a href="/documentation/ajax-errors">Ajax errors</a></li>
                         <li><a href="/documentation/activity-indicator">Activity indicator</a></li>
+                        <li><a href="/documentation/jquery-validation">jQuery Validation</a></li>
+                        <li><a href="/documentation/jquery-unobtrusive-validation">Unobtrusive Validation</a></li>
                     </ul>
                 </div>
             </div>
@@ -62,16 +71,6 @@
         <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 1031" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub">
     </a>
 
-    <script type="text/javascript" src="~/Scripts/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/jquery-ui-1.9.2.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/SyntaxHighlighter/shCore.js"></script>
-    <script type="text/javascript" src="~/Scripts/SyntaxHighlighter/shBrushXml.js"></script>
-    <script type="text/javascript" src="~/Scripts/SyntaxHighlighter/shBrushJScript.js"></script>
-    <script type="text/javascript" src="~/Scripts/datajo.js"></script>
     
-    <script type="text/javascript">
-        SyntaxHighlighter.all()
-    </script>
 </body>
 </html>

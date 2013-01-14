@@ -1,0 +1,14 @@
+﻿@using ByteCarrot.Datajo.Website.Controllers.Examples
+@model dynamic
+
+@{
+    Layout = MVC.Shared.Views._Layout;
+}
+
+@section jQueryPlugins {
+    <script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
+}
+
+<h2>jQuery Validation</h2>
+
+@Html.Partial(MVC.Examples.Views.JQueryValidation, new FormViewModel())

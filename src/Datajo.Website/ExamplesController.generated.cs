@@ -70,6 +70,7 @@ namespace ByteCarrot.Datajo.Website.Controllers.Examples
             public readonly string Long = "Long";
             public readonly string Post = "Post";
             public readonly string Form = "Form";
+            public readonly string JQueryValidation = "JQueryValidation";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -79,6 +80,7 @@ namespace ByteCarrot.Datajo.Website.Controllers.Examples
             public const string Long = "Long";
             public const string Post = "Post";
             public const string Form = "Form";
+            public const string JQueryValidation = "JQueryValidation";
         }
 
 
@@ -98,6 +100,14 @@ namespace ByteCarrot.Datajo.Website.Controllers.Examples
         {
             public readonly string model = "model";
         }
+        static readonly ActionParamsClass_JQueryValidation s_params_JQueryValidation = new ActionParamsClass_JQueryValidation();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_JQueryValidation JQueryValidationParams { get { return s_params_JQueryValidation; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_JQueryValidation
+        {
+            public readonly string model = "model";
+        }
         static readonly ViewsClass s_views = new ViewsClass();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public ViewsClass Views { get { return s_views; } }
@@ -110,12 +120,14 @@ namespace ByteCarrot.Datajo.Website.Controllers.Examples
             {
                 public readonly string Form = "Form";
                 public readonly string Get = "Get";
+                public readonly string JQueryValidation = "JQueryValidation";
                 public readonly string Long = "Long";
                 public readonly string Post = "Post";
                 public readonly string Success = "Success";
             }
             public readonly string Form = "~/Views/Examples/Form.cshtml";
             public readonly string Get = "~/Views/Examples/Get.cshtml";
+            public readonly string JQueryValidation = "~/Views/Examples/JQueryValidation.cshtml";
             public readonly string Long = "~/Views/Examples/Long.cshtml";
             public readonly string Post = "~/Views/Examples/Post.cshtml";
             public readonly string Success = "~/Views/Examples/Success.cshtml";
@@ -152,9 +164,22 @@ namespace ByteCarrot.Datajo.Website.Controllers.Examples
             return callInfo;
         }
 
-        public override System.Web.Mvc.ActionResult Form(ByteCarrot.Datajo.Website.Controllers.Examples.FormViewModel model)
+        public override System.Web.Mvc.ActionResult Form(ByteCarrot.Datajo.Website.Controllers.Examples.ValidatedFormViewModel model)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Form);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult JQueryValidation()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.JQueryValidation);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult JQueryValidation(ByteCarrot.Datajo.Website.Controllers.Examples.FormViewModel model)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.JQueryValidation);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
             return callInfo;
         }

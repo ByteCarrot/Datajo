@@ -1,9 +1,7 @@
 /// <reference path="jquery.d.ts" />
 
 module Datajo {
-    class Test {
-        lalalala: number;
-    }
+
     class Action {
         constructor(action: string, sender: Element, data: any) {
             if (data.action !== action) {
@@ -250,6 +248,7 @@ module Datajo {
 
     class PostAction extends AjaxAction {
         form: string;
+        jqvalidate: bool;
         constructor(sender: Element, data: any) {
             super('post', sender, data);
             if (data.form === undefined || data.form.trim() === '') {
@@ -260,14 +259,20 @@ module Datajo {
                 throw new Exception("Element identified by '" + data.form + "' selector is not a form");
             }
             this.form = data.form;
+
+            this.jqvalidate = data.jqvalidate !== undefined && _.isBool(data.jqvalidate) ? data.jqvalidate : true;
         }
     };
 
     class PostActionHandler extends ActionHandler {
         execute(sender: Element, data: any) {
             var action = new PostAction(sender, data);
+            var form = $(action.form);
+            if (action.jqvalidate && $.validator !== undefined && !form.valid()) {
+                return;
+            }
             if (action.confirmed()) {
-                $.post(action.url, $(action.form).serializeArray(), html => { this.onSuccess(action, html); });
+                $.post(action.url, form.serializeArray(), html => { this.onSuccess(action, html); });
             }
         }
         private onSuccess(action: PostAction, html: string) {
@@ -302,6 +307,7 @@ module Datajo {
 
     class Runner {
         private repo: Repository;
+        private config: Configuration;
         private handlers: any;
         private events: any;
         private activityIndicator: ActivityIndicator;
@@ -314,13 +320,15 @@ module Datajo {
             $(document).ajaxError((e: any, x: any, o: any, err: any) => this.errorHandler.onAjaxError(e, x, o, err));
 
             this.repo = new Repository();
+            this.config = this.getConfiguration();
+
             this.handlers = {
                 'show': new ShowActionHandler(),
                 'hide': new HideActionHandler(),
                 'get': new GetActionHandler(),
                 'post': new PostActionHandler()
             };
-            this.activityIndicator = new ActivityIndicator(this.getConfiguration());
+            this.activityIndicator = new ActivityIndicator(this.config);
 
             this.update();
         }
@@ -342,6 +350,10 @@ module Datajo {
                     $(element).on(event, e => this.onevent(e));
                 }
             };
+
+            if ($.validator !== undefined && $.validator.unobtrusive !== undefined) {
+                $.validator.unobtrusive.parse('form')
+            }
         }
 
         public onAjaxStart() {
@@ -430,6 +442,10 @@ module Datajo {
 
         public static isString(data: any): bool {
             return Object.prototype.toString.call(data) == '[object String]';
+        }
+
+        public static isBool(data: any): bool {
+            return Object.prototype.toString.call(data) == '[object Boolean]';
         }
 
         public static normalize(data: string): string {

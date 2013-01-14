@@ -116,6 +116,7 @@
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Controllers\Examples\ExamplesController.cs" />
+    <Compile Include="Controllers\Examples\ValidatedFormViewModel.cs" />
     <Compile Include="Controllers\Examples\FormViewModel.cs" />
     <Compile Include="DocumentationController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
@@ -272,6 +273,11 @@
     <Content Include="Scripts\jquery-ui-1.9.2.min.js" />
     <CodeAnalysisDictionary Include="Scripts\Specs\EventName.spec.ts" />
     <CodeAnalysisDictionary Include="Scripts\jquery.d.ts" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\specs.js" />
     <Content Include="Scripts\specs.min.js" />
     <Content Include="Scripts\Specs\EventName.spec.js">
@@ -358,6 +364,10 @@
     <Content Include="Views\Documentation\installation.cshtml" />
     <Content Include="Views\Examples\Get.cshtml" />
     <Content Include="Views\Examples\Post.cshtml" />
+    <Content Include="Views\Documentation\jquery-validation.cshtml" />
+    <Content Include="Views\Documentation\jquery-unobtrusive-validation.cshtml" />
+    <Content Include="Views\Examples\JQueryValidation.cshtml" />
+    <Content Include="Views\Examples\JQueryValidationSuccess.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Datajo.Mvc\Datajo.Mvc.csproj">

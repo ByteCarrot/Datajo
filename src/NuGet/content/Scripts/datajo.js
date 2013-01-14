@@ -5,10 +5,6 @@ var __extends = this.__extends || function (d, b) {
 };
 var Datajo;
 (function (Datajo) {
-    var Test = (function () {
-        function Test() { }
-        return Test;
-    })();    
     var Action = (function () {
         function Action(action, sender, data) {
             if(data.action !== action) {
@@ -271,6 +267,7 @@ var Datajo;
                 throw new Exception("Element identified by '" + data.form + "' selector is not a form");
             }
             this.form = data.form;
+            this.jqvalidate = data.jqvalidate !== undefined && _.isBool(data.jqvalidate) ? data.jqvalidate : true;
         }
         return PostAction;
     })(AjaxAction);    
@@ -284,8 +281,12 @@ var Datajo;
         PostActionHandler.prototype.execute = function (sender, data) {
             var _this = this;
             var action = new PostAction(sender, data);
+            var form = $(action.form);
+            if(action.jqvalidate && $.validator !== undefined && !form.valid()) {
+                return;
+            }
             if(action.confirmed()) {
-                $.post(action.url, $(action.form).serializeArray(), function (html) {
+                $.post(action.url, form.serializeArray(), function (html) {
                     _this.onSuccess(action, html);
                 });
             }
@@ -338,13 +339,14 @@ var Datajo;
                 return _this.errorHandler.onAjaxError(e, x, o, err);
             });
             this.repo = new Repository();
+            this.config = this.getConfiguration();
             this.handlers = {
                 'show': new ShowActionHandler(),
                 'hide': new HideActionHandler(),
                 'get': new GetActionHandler(),
                 'post': new PostActionHandler()
             };
-            this.activityIndicator = new ActivityIndicator(this.getConfiguration());
+            this.activityIndicator = new ActivityIndicator(this.config);
             this.update();
         }
         Runner.prototype.getConfiguration = function () {
@@ -367,6 +369,9 @@ var Datajo;
                 }
             }
             ; ;
+            if($.validator !== undefined && $.validator.unobtrusive !== undefined) {
+                $.validator.unobtrusive.parse('form');
+            }
         };
         Runner.prototype.onAjaxStart = function () {
             this.activityIndicator.show();
@@ -463,6 +468,9 @@ var Datajo;
         }
         _.isString = function isString(data) {
             return Object.prototype.toString.call(data) == '[object String]';
+        }
+        _.isBool = function isBool(data) {
+            return Object.prototype.toString.call(data) == '[object Boolean]';
         }
         _.normalize = function normalize(data) {
             return data.trim().toLowerCase();

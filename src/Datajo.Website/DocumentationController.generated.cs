@@ -105,6 +105,8 @@ namespace ByteCarrot.Datajo.Website.Controllers.Documentation
                 public readonly string event_types = "event-types";
                 public readonly string html_injection_types = "html-injection-types";
                 public readonly string installation = "installation";
+                public readonly string jquery_unobtrusive_validation = "jquery-unobtrusive-validation";
+                public readonly string jquery_validation = "jquery-validation";
                 public readonly string multiple_actions = "multiple-actions";
                 public readonly string overview = "overview";
                 public readonly string special_targets = "special-targets";
@@ -120,6 +122,8 @@ namespace ByteCarrot.Datajo.Website.Controllers.Documentation
             public readonly string event_types = "~/Views/Documentation/event-types.cshtml";
             public readonly string html_injection_types = "~/Views/Documentation/html-injection-types.cshtml";
             public readonly string installation = "~/Views/Documentation/installation.cshtml";
+            public readonly string jquery_unobtrusive_validation = "~/Views/Documentation/jquery-unobtrusive-validation.cshtml";
+            public readonly string jquery_validation = "~/Views/Documentation/jquery-validation.cshtml";
             public readonly string multiple_actions = "~/Views/Documentation/multiple-actions.cshtml";
             public readonly string overview = "~/Views/Documentation/overview.cshtml";
             public readonly string special_targets = "~/Views/Documentation/special-targets.cshtml";

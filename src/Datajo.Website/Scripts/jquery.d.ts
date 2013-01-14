@@ -164,6 +164,9 @@ interface JQuerySupport {
 */
 interface JQueryStatic {
 
+    // plugins
+    validator: any;
+     
     /****
      AJAX
     *****/
@@ -308,6 +311,12 @@ interface JQueryStatic {
     The jQuery instance members
 */
 interface JQuery {
+
+    // plugins
+
+    valid(): bool;
+    validate(): JQuery;
+    
     /****
      AJAX
     *****/

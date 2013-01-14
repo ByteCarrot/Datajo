@@ -31,7 +31,7 @@ namespace ByteCarrot.Datajo.Website.Controllers.Examples
         }
 
         [HttpPost]
-        public virtual ActionResult Form(FormViewModel model)
+        public virtual ActionResult Form(ValidatedFormViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -39,6 +39,18 @@ namespace ByteCarrot.Datajo.Website.Controllers.Examples
             }
 
             return PartialView("Success", model);
+        }
+
+        [HttpGet]
+        public virtual ActionResult JQueryValidation()
+        {
+            return PartialView();
+        }
+
+        [HttpPost]
+        public virtual ActionResult JQueryValidation(FormViewModel model)
+        {
+            return PartialView("JQueryValidationSuccess", model);
         }
     }
 }
