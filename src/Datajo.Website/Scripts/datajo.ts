@@ -248,7 +248,7 @@ module Datajo {
 
     class PostAction extends AjaxAction {
         form: string;
-        jqvalidate: bool;
+        validate: bool;
         constructor(sender: Element, data: any) {
             super('post', sender, data);
             if (data.form === undefined || data.form.trim() === '') {
@@ -260,7 +260,7 @@ module Datajo {
             }
             this.form = data.form;
 
-            this.jqvalidate = data.jqvalidate !== undefined && _.isBool(data.jqvalidate) ? data.jqvalidate : true;
+            this.validate = data.validate !== undefined && _.isBool(data.jqvalidate) ? data.jqvalidate : true;
         }
     };
 
@@ -268,7 +268,7 @@ module Datajo {
         execute(sender: Element, data: any) {
             var action = new PostAction(sender, data);
             var form = $(action.form);
-            if (action.jqvalidate && $.validator !== undefined && !form.valid()) {
+            if (action.validate && $.validator !== undefined && !form.valid()) {
                 return;
             }
             if (action.confirmed()) {
@@ -351,6 +351,7 @@ module Datajo {
                 }
             };
 
+            // Enable client side validation if Microsoft's Unobtrusive Validation plugin is available
             if ($.validator !== undefined && $.validator.unobtrusive !== undefined) {
                 $.validator.unobtrusive.parse('form')
             }

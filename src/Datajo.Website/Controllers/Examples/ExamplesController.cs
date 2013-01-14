@@ -52,5 +52,22 @@ namespace ByteCarrot.Datajo.Website.Controllers.Examples
         {
             return PartialView("JQueryValidationSuccess", model);
         }
+
+        [HttpGet]
+        public virtual ActionResult UnobtrusiveValidation()
+        {
+            return PartialView();
+        }
+
+        [HttpPost]
+        public virtual ActionResult UnobtrusiveValidation(ValidatedFormViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return PartialView(model);
+            }
+
+            return PartialView("UnobtrusiveValidationSuccess", model);
+        }
     }
 }

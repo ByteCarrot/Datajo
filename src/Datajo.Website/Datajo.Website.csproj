@@ -120,9 +120,11 @@
     <Compile Include="Controllers\Examples\FormViewModel.cs" />
     <Compile Include="DocumentationController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="ExamplesController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="HomeController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
@@ -368,6 +370,8 @@
     <Content Include="Views\Documentation\jquery-unobtrusive-validation.cshtml" />
     <Content Include="Views\Examples\JQueryValidation.cshtml" />
     <Content Include="Views\Examples\JQueryValidationSuccess.cshtml" />
+    <Content Include="Views\Examples\UnobtrusiveValidation.cshtml" />
+    <Content Include="Views\Examples\UnobtrusiveValidationSuccess.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Datajo.Mvc\Datajo.Mvc.csproj">

@@ -267,7 +267,7 @@ var Datajo;
                 throw new Exception("Element identified by '" + data.form + "' selector is not a form");
             }
             this.form = data.form;
-            this.jqvalidate = data.jqvalidate !== undefined && _.isBool(data.jqvalidate) ? data.jqvalidate : true;
+            this.validate = data.validate !== undefined && _.isBool(data.jqvalidate) ? data.jqvalidate : true;
         }
         return PostAction;
     })(AjaxAction);    
@@ -282,7 +282,7 @@ var Datajo;
             var _this = this;
             var action = new PostAction(sender, data);
             var form = $(action.form);
-            if(action.jqvalidate && $.validator !== undefined && !form.valid()) {
+            if(action.validate && $.validator !== undefined && !form.valid()) {
                 return;
             }
             if(action.confirmed()) {

@@ -3,7 +3,7 @@
 <form id="form1">
     <fieldset>
         <legend>Form validated by jQuery Validation plugin</legend>
-        @Html.TextBoxFor(x => x.Text, new { placeholder = "Email", @class="input-xlarge required email" })
+        @Html.TextBoxFor(x => x.Text, new { placeholder = "Add your email and click button below", @class="input-xlarge required email" })
         <div class="form-actions">
             <button class="btn" type="button" data-jo='{"action":"post","target":"#form1","inject":"replaceTarget","url":"/examples/jqueryvalidation","form":"#form1"}'>Send</button>
         </div>

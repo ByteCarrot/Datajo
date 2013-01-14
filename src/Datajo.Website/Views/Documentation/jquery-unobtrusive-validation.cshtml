@@ -1,4 +1,5 @@
-﻿@model dynamic
+﻿@using ByteCarrot.Datajo.Website.Controllers.Examples
+@model dynamic
 
 @{
     Layout = MVC.Shared.Views._Layout;
@@ -11,13 +12,4 @@
 
 <h2>jQuery Unobtrusive Validation</h2>
 
-<form id="form1">
-    <fieldset>
-        <legend>aaa</legend>
-        <input name="text" type="text" value="" class="input-xlarge required email" placeholder="Add some text and click button below" />
-        <div class="form-actions">
-            <button class="btn" type="button" data-jo='{"action":"post","target":"#box1","url":"/examples/post","form":"#form1"}'>Send</button>
-        </div>
-        <div id="box1" class="example-box-get"></div>
-    </fieldset>
-</form>
+@Html.Partial(MVC.Examples.Views.UnobtrusiveValidation, new ValidatedFormViewModel())
