@@ -1,17 +1,12 @@
 ﻿@model ByteCarrot.Datajo.Website.Controllers.Examples.ValidatedFormViewModel
 
 <form id="form2">
-    <div class="row">
-        <div class="span12">
-            @Html.TextBoxFor(x => x.Text, new { placeholder = "Add some text and click button below", @class = "input-xlarge" })
-            @Html.ValidationMessageFor(x => x.Text)
+    <fieldset>
+        <legend>Replace</legend>
+        @Html.TextBoxFor(x => x.Text, new { placeholder = "Add some text and click button below", @class = "input-xlarge" })
+        @Html.ValidationMessageFor(x => x.Text)
+        <div class="form-actions">
+            <button class="btn" type="button" data-jo='{"action":"post","target":"#form2","url":"/examples/form","form":"#form2","inject":"replaceTarget"}'>Send</button>
         </div>
-    </div>
-    <div class="row">
-        <div class="span12">
-            <div class="form-actions">
-                <button class="btn" type="button" data-jo='{"action":"post","target":"#form2","url":"/examples/form","form":"#form2","inject":"replaceTarget"}'>Send</button>
-            </div>
-        </div>
-    </div>
+    </fieldset>
 </form>
