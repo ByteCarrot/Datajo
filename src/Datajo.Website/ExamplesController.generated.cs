@@ -72,6 +72,9 @@ namespace ByteCarrot.Datajo.Website.Controllers.Examples
             public readonly string Form = "Form";
             public readonly string JQueryValidation = "JQueryValidation";
             public readonly string UnobtrusiveValidation = "UnobtrusiveValidation";
+            public readonly string LoadEvent = "LoadEvent";
+            public readonly string ClickEvent = "ClickEvent";
+            public readonly string SubmitEvent = "SubmitEvent";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -83,6 +86,9 @@ namespace ByteCarrot.Datajo.Website.Controllers.Examples
             public const string Form = "Form";
             public const string JQueryValidation = "JQueryValidation";
             public const string UnobtrusiveValidation = "UnobtrusiveValidation";
+            public const string LoadEvent = "LoadEvent";
+            public const string ClickEvent = "ClickEvent";
+            public const string SubmitEvent = "SubmitEvent";
         }
 
 
@@ -118,6 +124,14 @@ namespace ByteCarrot.Datajo.Website.Controllers.Examples
         {
             public readonly string model = "model";
         }
+        static readonly ActionParamsClass_SubmitEvent s_params_SubmitEvent = new ActionParamsClass_SubmitEvent();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_SubmitEvent SubmitEventParams { get { return s_params_SubmitEvent; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_SubmitEvent
+        {
+            public readonly string model = "model";
+        }
         static readonly ViewsClass s_views = new ViewsClass();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public ViewsClass Views { get { return s_views; } }
@@ -128,22 +142,28 @@ namespace ByteCarrot.Datajo.Website.Controllers.Examples
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
+                public readonly string ClickEvent = "ClickEvent";
                 public readonly string Form = "Form";
                 public readonly string Get = "Get";
                 public readonly string JQueryValidation = "JQueryValidation";
                 public readonly string JQueryValidationSuccess = "JQueryValidationSuccess";
+                public readonly string LoadEvent = "LoadEvent";
                 public readonly string Long = "Long";
                 public readonly string Post = "Post";
+                public readonly string SubmitEvent = "SubmitEvent";
                 public readonly string Success = "Success";
                 public readonly string UnobtrusiveValidation = "UnobtrusiveValidation";
                 public readonly string UnobtrusiveValidationSuccess = "UnobtrusiveValidationSuccess";
             }
+            public readonly string ClickEvent = "~/Views/Examples/ClickEvent.cshtml";
             public readonly string Form = "~/Views/Examples/Form.cshtml";
             public readonly string Get = "~/Views/Examples/Get.cshtml";
             public readonly string JQueryValidation = "~/Views/Examples/JQueryValidation.cshtml";
             public readonly string JQueryValidationSuccess = "~/Views/Examples/JQueryValidationSuccess.cshtml";
+            public readonly string LoadEvent = "~/Views/Examples/LoadEvent.cshtml";
             public readonly string Long = "~/Views/Examples/Long.cshtml";
             public readonly string Post = "~/Views/Examples/Post.cshtml";
+            public readonly string SubmitEvent = "~/Views/Examples/SubmitEvent.cshtml";
             public readonly string Success = "~/Views/Examples/Success.cshtml";
             public readonly string UnobtrusiveValidation = "~/Views/Examples/UnobtrusiveValidation.cshtml";
             public readonly string UnobtrusiveValidationSuccess = "~/Views/Examples/UnobtrusiveValidationSuccess.cshtml";
@@ -210,6 +230,31 @@ namespace ByteCarrot.Datajo.Website.Controllers.Examples
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.UnobtrusiveValidation);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult LoadEvent()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.LoadEvent);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult ClickEvent()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.ClickEvent);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult SubmitEvent(ByteCarrot.Datajo.Website.Controllers.Examples.ValidatedFormViewModel model)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.SubmitEvent);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult SubmitEvent()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.SubmitEvent);
             return callInfo;
         }
 

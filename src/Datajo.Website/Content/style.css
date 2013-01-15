@@ -3,7 +3,8 @@
   padding-top: 70px;
   padding-bottom: 40px;
 }
-h2 i {
+h2 i,
+h3 i {
   color: #f00;
   font-style: normal;
 }
@@ -38,4 +39,19 @@ label.error {
 }
 #loader {
   margin-top: 3px;
+}
+div.syntaxhighlighter {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: solid 1px #eee;
+}
+div.syntaxhighlighter div.toolbar,
+div.syntaxhighlighter td.gutter {
+  display: none;
+}
+div.tab-pane {
+  padding: 2px;
+}
+ul.nav-tabs {
+  margin-bottom: 10px;
 }

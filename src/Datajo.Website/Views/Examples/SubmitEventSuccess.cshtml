@@ -1,0 +1,12 @@
+﻿@model ByteCarrot.Datajo.Website.Controllers.Examples.ValidatedFormViewModel
+
+<div id="success">
+    <fieldset>
+        <legend>Form with <i>submit</i> event</legend>
+        Success! Submit event works!<br />
+        <h2>@Model.Text</h2>
+        <div class="form-actions">
+            <button class="btn btn-info" type="button" data-jo='{"action":"get","target":"#success","url":"/examples/submitevent","inject":"replaceTarget"}'>Reset</button>
+        </div>
+    </fieldset>
+</div>

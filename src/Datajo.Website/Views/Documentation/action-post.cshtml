@@ -7,7 +7,7 @@
 
 <h2>Action: <i>post</i></h2>
 <p>
-    Uses jQuery's <a href="http://api.jquery.com/jQuery.post/" target="_blank">$.post()</a> function to post form data and inject returned HTML to the right place.
+    Uses jQuery's <a href="http://api.jquery.com/jQuery.post/" target="_blank">$.post()</a> function to post form data and inject returned HTML to the specified place.
 </p>
 <table class="table table-bordered table-hover">
     <tr>
@@ -52,7 +52,9 @@
         <td>validate</td>
         <td>no</td>
         <td>true</td>
-        <td>Text for a confirmation dialog window.</td>
+        <td>Determines if client side validation should be triggered. Works with 
+            <a href="/documentation/jquery-validation">jQuery Validation</a> and 
+            <a href="/documentation/jquery-unobtrusive-validation">Unobtrusive Validation</a> plugins</td>
     </tr>
     <tr>
         <td>event</td>
@@ -91,7 +93,7 @@ Example:
 
 <form id="form3">
     <fieldset>
-        <legend>Confirmations</legend>
+        <legend>Confirmation</legend>
         <input name="text" type="text" value="" class="input-xlarge" placeholder="Add some text and click button below" />
         <div class="form-actions">
             <button class="btn" type="button" data-jo='{"action":"post","target":"#box3","url":"/examples/post","form":"#form3","confirm":"Are you sure?"}'>Send</button>

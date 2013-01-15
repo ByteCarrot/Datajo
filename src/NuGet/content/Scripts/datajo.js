@@ -259,10 +259,16 @@ var Datajo;
         __extends(PostAction, _super);
         function PostAction(sender, data) {
                 _super.call(this, 'post', sender, data);
-            if(data.form === undefined || data.form.trim() === '') {
+            if(data.form === undefined || _.normalize(data.form) === '') {
                 throw new Exception('Form has not been defined');
             }
-            var form = $(data.form).get(0);
+            var form;
+            if(_.normalize(data.form) === '_self') {
+                form = this.sender;
+            } else {
+                var form = $(data.form).get(0);
+            }
+            console.log(form);
             if(form.tagName.toLowerCase() !== 'form') {
                 throw new Exception("Element identified by '" + data.form + "' selector is not a form");
             }
@@ -366,6 +372,9 @@ var Datajo;
                     $(element).on(event, function (e) {
                         return _this.onevent(e);
                     });
+                    if(event == 'load') {
+                        $(element).trigger('load');
+                    }
                 }
             }
             ; ;

@@ -280,6 +280,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\script.js" />
     <Content Include="Scripts\specs.js" />
     <Content Include="Scripts\specs.min.js" />
     <Content Include="Scripts\Specs\EventName.spec.js">
@@ -372,6 +373,10 @@
     <Content Include="Views\Examples\JQueryValidationSuccess.cshtml" />
     <Content Include="Views\Examples\UnobtrusiveValidation.cshtml" />
     <Content Include="Views\Examples\UnobtrusiveValidationSuccess.cshtml" />
+    <Content Include="Views\Examples\LoadEvent.cshtml" />
+    <Content Include="Views\Examples\ClickEvent.cshtml" />
+    <Content Include="Views\Examples\SubmitEvent.cshtml" />
+    <Content Include="Views\Examples\SubmitEventSuccess.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Datajo.Mvc\Datajo.Mvc.csproj">

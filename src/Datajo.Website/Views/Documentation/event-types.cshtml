@@ -1,8 +1,64 @@
-﻿@using ByteCarrot.Datajo.Website
-@model dynamic
-
-@{
-    Layout = MVC.Shared.Views._Layout;
-}
+﻿@using ByteCarrot.Datajo.Website.Controllers.Examples
+@{ Layout = MVC.Shared.Views._Layout; }
 
 <h2>Event types</h2>
+Datajo actions can be triggered by a set of events:
+<ul>
+    <li><strong>load</strong> - this event is triggered as soon as web page is ready.</li>
+    <li><strong>click</strong> - this event is triggered when HTML element containing <i>data-jo</i> attribute is clicked.</li>
+    <li><strong>submit</strong> - this event can be used only with HTML <i>form</i> element. It is triggered when form's submit button is clicked.</li>
+</ul>
+
+<h3><i>load</i> event</h3>
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#load-demo" data-toggle="tab">Demo</a></li>
+    <li><a href="#load-code" data-toggle="tab">Code</a></li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane active" id="load-demo">
+        <div class="well" data-jo='{"action":"get","url":"/examples/loadevent","target":"_self","event":"load"}'></div>
+    </div>
+    <div class="tab-pane" id="load-code">
+        <pre class="brush: xml"></pre>
+    </div>
+</div>
+
+<h3><i>click</i> event</h3>
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#click-demo" data-toggle="tab">Demo</a></li>
+    <li><a href="#click-code" data-toggle="tab">Code</a></li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane active" id="click-demo">
+        <div class="well">
+            <button class="btn btn-primary" data-jo='{"action":"get","url":"/examples/clickevent","target":"#servertime","event":"click"}'>Click me!</button>
+            <span style="margin-left: 20px" id="servertime">Click the button to get current server time</span>
+        </div>
+    </div>
+    <div class="tab-pane" id="click-code">
+        <pre class="brush: xml"></pre>
+    </div>
+</div>
+
+
+<h3><i>submit</i> event</h3>
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#submit-demo" data-toggle="tab">Demo</a></li>
+    <li><a href="#submit-code" data-toggle="tab">Code</a></li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane active" id="submit-demo">
+@Html.Partial(MVC.Examples.Views.SubmitEvent, new ValidatedFormViewModel())
+    </div>
+    <div class="tab-pane" id="submit-code">
+        <pre class="brush: xml"></pre>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        addCode('#load-code > pre', '#load-demo');
+        addCode('#click-code > pre', '#click-demo');
+        addCode('#submit-code > pre', '#submit-demo');
+    });
+</script>

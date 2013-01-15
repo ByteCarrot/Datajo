@@ -1,0 +1,12 @@
+﻿@model ByteCarrot.Datajo.Website.Controllers.Examples.ValidatedFormViewModel
+
+<form data-jo='{"action":"post","target":"_self","url":"/examples/submitevent","form":"_self","inject":"replaceTarget","event":"submit"}'>
+    <fieldset>
+        <legend>Form with <i>submit</i> event</legend>
+        @Html.TextBoxFor(x => x.Text, new { placeholder = "Add some text and click button below", @class = "input-xlarge" })
+        @Html.ValidationMessageFor(x => x.Text)
+        <div class="form-actions">
+            <button class="btn" type="submit">Send</button>
+        </div>
+    </fieldset>
+</form>

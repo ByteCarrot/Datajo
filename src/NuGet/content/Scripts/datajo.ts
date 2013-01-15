@@ -251,10 +251,18 @@ module Datajo {
         validate: bool;
         constructor(sender: Element, data: any) {
             super('post', sender, data);
-            if (data.form === undefined || data.form.trim() === '') {
+            if (data.form === undefined || _.normalize(data.form) === '') {
                 throw new Exception('Form has not been defined');
             }
-            var form: Element = $(data.form).get(0);
+
+            var form: Element;
+            if (_.normalize(data.form) === '_self') {
+                form = this.sender;
+            } else {
+                var form: Element = $(data.form).get(0);
+            }
+            console.log(form);
+
             if (form.tagName.toLowerCase() !== 'form') {
                 throw new Exception("Element identified by '" + data.form + "' selector is not a form");
             }
@@ -348,6 +356,9 @@ module Datajo {
                 element.datajo = this.findData(element);
                 for (var event in element.datajo) {
                     $(element).on(event, e => this.onevent(e));
+                    if (event == 'load') {
+                        $(element).trigger('load');
+                    }
                 }
             };
 
