@@ -262,17 +262,14 @@ var Datajo;
             if(data.form === undefined || _.normalize(data.form) === '') {
                 throw new Exception('Form has not been defined');
             }
-            var form;
             if(_.normalize(data.form) === '_self') {
-                form = this.sender;
+                this.form = this.sender;
             } else {
-                var form = $(data.form).get(0);
+                this.form = $(data.form).get(0);
             }
-            console.log(form);
-            if(form.tagName.toLowerCase() !== 'form') {
+            if(this.form.tagName.toLowerCase() !== 'form') {
                 throw new Exception("Element identified by '" + data.form + "' selector is not a form");
             }
-            this.form = data.form;
             this.validate = data.validate !== undefined && _.isBool(data.jqvalidate) ? data.jqvalidate : true;
         }
         return PostAction;

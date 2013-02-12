@@ -247,7 +247,7 @@ module Datajo {
     }
 
     class PostAction extends AjaxAction {
-        form: string;
+        form: Element;
         validate: bool;
         constructor(sender: Element, data: any) {
             super('post', sender, data);
@@ -255,18 +255,15 @@ module Datajo {
                 throw new Exception('Form has not been defined');
             }
 
-            var form: Element;
             if (_.normalize(data.form) === '_self') {
-                form = this.sender;
+                this.form = this.sender;
             } else {
-                var form: Element = $(data.form).get(0);
+                this.form = $(data.form).get(0);
             }
-            console.log(form);
 
-            if (form.tagName.toLowerCase() !== 'form') {
+            if (this.form.tagName.toLowerCase() !== 'form') {
                 throw new Exception("Element identified by '" + data.form + "' selector is not a form");
             }
-            this.form = data.form;
 
             this.validate = data.validate !== undefined && _.isBool(data.jqvalidate) ? data.jqvalidate : true;
         }
