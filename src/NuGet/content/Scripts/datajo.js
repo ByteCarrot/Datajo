@@ -19,14 +19,14 @@ var Datajo;
         }
         return Action;
     })();    
-    ; ;
+    ;
     var ActionHandler = (function () {
         function ActionHandler() { }
         ActionHandler.prototype.execute = function (sender, data) {
         };
         return ActionHandler;
     })();    
-    ; ;
+    ;
     var ActivityIndicator = (function () {
         function ActivityIndicator(configuration) {
             var selector = configuration.activityIndicator;
@@ -156,7 +156,7 @@ var Datajo;
                 return event;
             }
             throw new Exception('Event "' + event + '" is not supported by "' + element.tagName + '" tag.');
-        }
+        };
         return EventName;
     })();
     Datajo.EventName = EventName;    
@@ -176,7 +176,7 @@ var Datajo;
         }
         return GetAction;
     })(AjaxAction);    
-    ; ;
+    ;
     var GetActionHandler = (function (_super) {
         __extends(GetActionHandler, _super);
         function GetActionHandler() {
@@ -197,7 +197,7 @@ var Datajo;
         };
         return GetActionHandler;
     })(ActionHandler);    
-    ; ;
+    ;
     var HideAction = (function (_super) {
         __extends(HideAction, _super);
         function HideAction(sender, data) {
@@ -207,7 +207,7 @@ var Datajo;
         }
         return HideAction;
     })(Action);    
-    ; ;
+    ;
     var HideActionHandler = (function (_super) {
         __extends(HideActionHandler, _super);
         function HideActionHandler() {
@@ -221,7 +221,7 @@ var Datajo;
         };
         return HideActionHandler;
     })(ActionHandler);    
-    ; ;
+    ;
     var HtmlInjection = (function () {
         function HtmlInjection() { }
         HtmlInjection.injections = {
@@ -246,13 +246,13 @@ var Datajo;
         };
         HtmlInjection.exists = function exists(injection) {
             return HtmlInjection.injections[injection] !== undefined;
-        }
+        };
         HtmlInjection.inject = function inject(action, html) {
             if(!HtmlInjection.exists(action.inject)) {
                 throw new Exception('Unknown injection type: ' + action.inject);
             }
             HtmlInjection.injections[action.inject](TargetResolver.resolve(action), html);
-        }
+        };
         return HtmlInjection;
     })();    
     var PostAction = (function (_super) {
@@ -274,7 +274,7 @@ var Datajo;
         }
         return PostAction;
     })(AjaxAction);    
-    ; ;
+    ;
     var PostActionHandler = (function (_super) {
         __extends(PostActionHandler, _super);
         function PostActionHandler() {
@@ -299,7 +299,7 @@ var Datajo;
         };
         return PostActionHandler;
     })(ActionHandler);    
-    ; ;
+    ;
     var QueryString = (function () {
         function QueryString() { }
         QueryString.find = function find(key) {
@@ -311,7 +311,7 @@ var Datajo;
                 }
             }
             return undefined;
-        }
+        };
         return QueryString;
     })();    
     var Repository = (function () {
@@ -327,7 +327,7 @@ var Datajo;
         };
         return Repository;
     })();    
-    ; ;
+    ;
     var Runner = (function () {
         function Runner() {
             var _this = this;
@@ -374,7 +374,7 @@ var Datajo;
                     }
                 }
             }
-            ; ;
+            ;
             if($.validator !== undefined && $.validator.unobtrusive !== undefined) {
                 $.validator.unobtrusive.parse('form');
             }
@@ -424,7 +424,7 @@ var Datajo;
         };
         return Runner;
     })();    
-    ; ;
+    ;
     var ShowAction = (function (_super) {
         __extends(ShowAction, _super);
         function ShowAction(sender, data) {
@@ -434,7 +434,7 @@ var Datajo;
         }
         return ShowAction;
     })(Action);    
-    ; ;
+    ;
     var ShowActionHandler = (function (_super) {
         __extends(ShowActionHandler, _super);
         function ShowActionHandler() {
@@ -448,7 +448,7 @@ var Datajo;
         };
         return ShowActionHandler;
     })(ActionHandler);    
-    ; ;
+    ;
     var TargetResolver = (function () {
         function TargetResolver() { }
         TargetResolver.resolvers = {
@@ -464,23 +464,23 @@ var Datajo;
                 return TargetResolver.resolvers[action.target](action);
             }
             return $(action.target);
-        }
+        };
         return TargetResolver;
     })();    
     var _ = (function () {
         function _() { }
         _.isArray = function isArray(data) {
             return Object.prototype.toString.call(data) === '[object Array]';
-        }
+        };
         _.isString = function isString(data) {
             return Object.prototype.toString.call(data) == '[object String]';
-        }
+        };
         _.isBool = function isBool(data) {
             return Object.prototype.toString.call(data) == '[object Boolean]';
-        }
+        };
         _.normalize = function normalize(data) {
             return data.trim().toLowerCase();
-        }
+        };
         return _;
     })();
     Datajo._ = _;    
