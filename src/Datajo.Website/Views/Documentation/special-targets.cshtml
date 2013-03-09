@@ -6,3 +6,49 @@
 }
 
 <h2>Special targets</h2>
+Apart from standard jQuery selectors, target parameter accepts two additional keywords:
+<ul>
+    <li><strong>_self</strong> - represents HTML element on which <i>data-jo</i> attribute is defined</li>
+    <li><strong>_parent</strong> - represents parent of HTML element on which <i>data-jo</i> attribute is defined</li>
+</ul>
+
+<h3><i>_self</i> target</h3>
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#self-demo" data-toggle="tab">Demo</a></li>
+    <li><a href="#self-code" data-toggle="tab">Code</a></li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane active" id="self-demo">
+        <div class="well">
+            <button class="btn btn-primary" data-jo='{"action":"hide","target":"_self","duration":1000}'>Click me!</button>
+        </div>
+        <button class="btn" data-jo='{"action":"show","target":"#self-demo .well button","duration":0}'>Reset</button>
+    </div>
+    <div class="tab-pane" id="self-code">
+        <pre class="brush: xml"></pre>
+    </div>
+</div>
+
+<h3><i>_parent</i> target</h3>
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#parent-demo" data-toggle="tab">Demo</a></li>
+    <li><a href="#parent-code" data-toggle="tab">Code</a></li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane active" id="parent-demo">
+        <div class="well">
+            <button class="btn btn-primary" data-jo='{"action":"hide","target":"_parent","duration":1000}'>Click me!</button>
+        </div>
+        <button class="btn" data-jo='{"action":"show","target":"#parent-demo .well","duration":0}'>Reset</button>
+    </div>
+    <div class="tab-pane" id="parent-code">
+        <pre class="brush: xml"></pre>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        addCode('#self-code > pre', '#self-demo');
+        addCode('#parent-code > pre', '#parent-demo');
+    });
+</script>
