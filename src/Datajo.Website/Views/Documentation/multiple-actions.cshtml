@@ -6,11 +6,24 @@
 }
 
 <h2>Multiple actions</h2>
+Datajo many actions assigned to a single HTML tag. To do that wrap comma separated actions in square brackets like this:
+<pre class="brush: js">
+    data-jo='[{"action":"show","target":"#div1"},{"action":"hide","target":"#div2"}]'
+</pre>
+
+<h3>example 1</h3>
 <div class="example-box">
-    <div id="div3"></div>
-    <div id="div4" style="display: none"></div>
+    <div id="div1"></div>
+    <div id="div2" style="display: none"></div>
 </div>
-<div class="btn-group btn-group-vertical" style="margin-top: 20px;">
-    <a href="#" class="btn" data-jo='[{"action":"hide","target":"#div3","duration":2000},{"action":"show","target":"#div4","duration":2000}]'>data-jo='[{"action":"hide","target":"#div3","duration":2000},{"action":"show","target":"#div4","duration":2000}]'</a>
-    <a href="#" class="btn btn-info" data-jo='[{"action":"show","target":"#div3"},{"action":"hide","target":"#div4"}]'>Reset</a>
+<div class="btn-group btn-group-horizontal" style="margin-top: 20px;">
+    <a href="#" class="btn" data-jo='[{"action":"hide","target":"#div1","duration":2000},{"action":"show","target":"#div2","duration":2000}]'>Click me!</a>
+    <a href="#" class="btn btn-info" data-jo='[{"action":"show","target":"#div1"},{"action":"hide","target":"#div2"}]'>Reset</a>
+</div>
+
+<h3>example 2</h3>
+<div id="div3" class="example-box-get">Target 1</div>
+<div id="div4" class="example-box-get">Target 2 (this should change after 5 seconds)</div>
+<div class="btn-group btn-group-horizontal" style="margin-top: 20px;">
+    <a href="#" class="btn" data-jo='[{"action":"get","target":"#div3","url":"/examples/clickevent"},{"action":"get","target":"#div4","url":"/examples/long"}]'>Click me!</a>
 </div>
