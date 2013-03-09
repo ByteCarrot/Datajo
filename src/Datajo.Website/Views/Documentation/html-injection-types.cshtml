@@ -6,3 +6,125 @@
 }
 
 <h2>HTML injection types</h2>
+Get and Post actions have 6 ways to inject content returned by the server:
+<ul>
+    <li><strong>replaceContent</strong> - replaces content (inner text or HTML) of a HTML tag specified as an injection target. Uses jQuery <a href="http://api.jquery.com/html/" target="_blank">.html()</a> function.</li>
+    <li><strong>afterContent</strong> - injects content returned from the server right after target's content. Uses jQuery <a href="http://api.jquery.com/append/" target="_blank">.append()</a> function.</li>
+    <li><strong>beforeContent</strong> - injects content returned form the server right before target's content. Uses jQuery  <a href="http://api.jquery.com/prepend/" target="_blank">.prepend()</a> function.</li>
+    <li><strong>replaceTarget</strong> - replaces HTML tag specified as a target with content returned from the server. Uses jQuery <a href="http://api.jquery.com/replacewith/" target="_blank">.replaceWith()</a> function.</li>
+    <li><strong>beforeTarget</strong> - injects content returned from the server right before HTML tag specified as a target. Uses jQuery <a href="http://api.jquery.com/before/" target="_blank">.before()</a> function.</li>
+    <li><strong>afterTarget</strong> - injects content returned from the server right after HTML tag specified as a target. Uses jQuery <a href="http://api.jquery.com/after/" target="_blank">.after()</a> function.</li>
+</ul>
+
+<h3><i>replaceContent</i> injection type</h3>
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#replaceContent-demo" data-toggle="tab">Demo</a></li>
+    <li><a href="#replaceContent-code" data-toggle="tab">Code</a></li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane active" id="replaceContent-demo">
+        <div id="replaceContent-box" class="example-box-get"><strong>The content</strong></div>
+        <div class="btn-group btn-group" style="margin-top: 20px;">
+            <a href="#" class="btn" data-jo='{"action":"get","target":"#replaceContent-box","url":"/examples/clickevent","inject":"replaceContent"}'>Click me!</a>
+        </div>
+    </div>
+    <div class="tab-pane" id="replaceContent-code">
+        <pre class="brush: xml"></pre>
+    </div>
+</div>
+
+<h3><i>afterContent</i> injection type</h3>
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#afterContent-demo" data-toggle="tab">Demo</a></li>
+    <li><a href="#afterContent-code" data-toggle="tab">Code</a></li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane active" id="afterContent-demo">
+        <div id="afterContent-box" class="example-box-get"><strong>The content</strong></div>
+        <div class="btn-group btn-group" style="margin-top: 20px;">
+            <a href="#" class="btn" data-jo='{"action":"get","target":"#afterContent-box","url":"/examples/clickevent","inject":"afterContent"}'>Click me!</a>
+        </div>
+    </div>
+    <div class="tab-pane" id="afterContent-code">
+        <pre class="brush: xml"></pre>
+    </div>
+</div>
+
+<h3><i>beforeContent</i> injection type</h3>
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#beforeContent-demo" data-toggle="tab">Demo</a></li>
+    <li><a href="#beforeContent-code" data-toggle="tab">Code</a></li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane active" id="beforeContent-demo">
+        <div id="beforeContent-box" class="example-box-get"><strong>The content</strong></div>
+        <div class="btn-group btn-group" style="margin-top: 20px;">
+            <a href="#" class="btn" data-jo='{"action":"get","target":"#beforeContent-box","url":"/examples/clickevent","inject":"beforeContent"}'>Click me!</a>
+        </div>
+    </div>
+    <div class="tab-pane" id="beforeContent-code">
+        <pre class="brush: xml"></pre>
+    </div>
+</div>
+
+<h3><i>replaceTarget</i> injection type</h3>
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#replaceTarget-demo" data-toggle="tab">Demo</a></li>
+    <li><a href="#replaceTarget-code" data-toggle="tab">Code</a></li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane active" id="replaceTarget-demo">
+        <div id="replaceTarget-box" class="example-box-get"><strong>The target</strong></div>
+        <div class="btn-group btn-group" style="margin-top: 20px;">
+            <a href="#" class="btn" data-jo='{"action":"get","target":"#replaceTarget-box","url":"/examples/clickevent","inject":"replaceTarget"}'>Click me!</a>
+        </div>
+    </div>
+    <div class="tab-pane" id="replaceTarget-code">
+        <pre class="brush: xml"></pre>
+    </div>
+</div>
+
+<h3><i>beforeTarget</i> injection type</h3>
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#beforeTarget-demo" data-toggle="tab">Demo</a></li>
+    <li><a href="#beforeTarget-code" data-toggle="tab">Code</a></li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane active" id="beforeTarget-demo">
+        <div id="beforeTarget-box" class="example-box-get"><strong>The target</strong></div>
+        <div class="btn-group btn-group" style="margin-top: 20px;">
+            <a href="#" class="btn" data-jo='{"action":"get","target":"#beforeTarget-box","url":"/examples/clickevent","inject":"beforeTarget"}'>Click me!</a>
+        </div>
+    </div>
+    <div class="tab-pane" id="beforeTarget-code">
+        <pre class="brush: xml"></pre>
+    </div>
+</div>
+
+<h3><i>afterTarget</i> injection type</h3>
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#afterTarget-demo" data-toggle="tab">Demo</a></li>
+    <li><a href="#afterTarget-code" data-toggle="tab">Code</a></li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane active" id="afterTarget-demo">
+        <div id="afterTarget-box" class="example-box-get"><strong>The target</strong></div>
+        <div class="btn-group btn-group" style="margin-top: 20px;">
+            <a href="#" class="btn" data-jo='{"action":"get","target":"#afterTarget-box","url":"/examples/clickevent","inject":"afterTarget"}'>Click me!</a>
+        </div>
+    </div>
+    <div class="tab-pane" id="afterTarget-code">
+        <pre class="brush: xml"></pre>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        addCode('#replaceContent-code > pre', '#replaceContent-demo');
+        addCode('#afterContent-code > pre', '#afterContent-demo');
+        addCode('#beforeContent-code > pre', '#beforeContent-demo');
+        addCode('#replaceTarget-code > pre', '#replaceTarget-demo');
+        addCode('#beforeTarget-code > pre', '#beforeTarget-demo');
+        addCode('#afterTarget-code > pre', '#afterTarget-demo');
+    });
+</script>
