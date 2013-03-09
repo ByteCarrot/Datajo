@@ -162,7 +162,6 @@
     <None Include="Content\style.less" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
-    <Content Include="Content\images\logo-small.png" />
     <Content Include="Content\style.css">
       <DependentUpon>style.less</DependentUpon>
     </Content>
