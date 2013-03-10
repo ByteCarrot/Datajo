@@ -160,6 +160,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\activity-indicator.gif" />
     <None Include="Content\style.less" />
+    <Content Include="Content\images\ajax-error.png" />
+    <Content Include="Content\images\background.png" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
     <Content Include="Content\style.css">

@@ -4,3 +4,73 @@
 @{
     Layout = MVC.Shared.Views._Layout;
 }
+
+<a id="overview"></a>
+<h2>Datajo</h2>
+<div class="row-fluid">
+    <div class="span4 well">
+        <h4>Easy to use</h4>
+        <p>Even monkey would be able to use Datajo ;)</p>
+    </div>
+    <div class="span4 well">
+        <h4>Declarative</h4>
+        <p>Clean HTML, witout strange JavaScript blocks</p>
+    </div>
+    <div class="span4 well">
+        <h4>Based on jQuery</h4>
+        <p>Wraps common tasks often implemented with jQuery</p>
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="span12 well">
+        <a id="download"></a>
+        <a class="btn btn-large btn-info">Download: Datajo v0.1</a>
+    </div>
+</div>
+<p><strong>Datajo</strong> - wraps common jQuery tasks in a form of unobtrusive, declarative actions defined directly on HTML elements. Take a look at two examples:</p>
+<h3><i>hide</i> example</h3>
+<strong>jQuery code to hide a HTML element</strong>
+<pre class="brush: js">
+    $(function() {
+        $('#box').hide({
+            duration:1000,
+            easing:'linear'
+        });
+    });
+</pre>
+<strong>can be replaced by:</strong>
+<pre class="brush: xml">
+    <a data-jo='{"action":"hide","target":"#box","easing":"linear","duration":1000}'>Click me!</a>
+</pre>
+<h3><i>form submission</i> example</h3>
+<strong>This chunk of jQuery</strong>
+<pre class="brush: js">
+<script type="text/javascript">
+    $(function () {
+        var form = $('#form1');
+        form.on('submit', function () {
+            event.preventDefault();
+            if (!confirm('Are you sure?')) {
+                return;
+            }
+
+            if ($.validator !== undefined && !form.valid()) {
+                return;
+            }
+
+            $.post('/examples/submitevent', form.serializeArray(), function (html) {
+                form.replaceWith(html);
+            });
+        });
+    });
+</script>
+</pre>
+<strong>can be replaced with:</strong>
+<pre class="brush: xml">
+    <form data-jo='{"action":"post","target":"_self","url":"/examples/submitevent","form":"_self","inject":"replaceTarget","event":"submit","confirm":"Are you sure?"}'></form>
+</pre>
+
+
+
+<a id="installation"></a>
+<h2>Installation</h2>

@@ -6,6 +6,17 @@
 }
 
 <h2>AJAX errors</h2>
+<p>
+    Datajo is able to catch and present jQuery AJAX errors. In <strong>production mode</strong> (default) it writes all error details to the JavaScript console. 
+    In <strong>debug mode</strong> errors are written to console and presented on the screen in more accessible form (like presented on the screenshot below).
+</p>
+<p>
+    <strong>Debug mode</strong> can be enabled by adding <strong>datajo=debug</strong> query string parameter to the end of page URL.
+</p>
+<h3>example</h3>
 <button class="btn" data-jo='{"action":"get","target":"_self","url":"/not-existing-url","inject":"replaceContent"}'>
-    Go
+    Click me!
 </button>
+<h3>error message in debug mode</h3>
+<img src="~/Content/images/ajax-error.png" title="Datajo AJAX error" />
+
