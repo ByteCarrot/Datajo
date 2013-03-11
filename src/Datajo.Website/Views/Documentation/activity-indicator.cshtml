@@ -6,3 +6,19 @@
 }
 
 <h2>Activity indicator</h2>
+<strong>Datajo</strong> is able to manage (show, hide) activity indicator when jQuery performs AJAX request. In order to say Datajo what HTML element plays activity indicator role extend <i>body</i> element with <strong>data-jo-config</strong> attribute.
+<pre class="brush: xml">
+&lt;body data-jo-config='{"activityIndicator":"#loader"}'>
+    <!-- some other stuff -->
+    <div id="loader">
+        <img src="activity-indicator.gif" />
+    </div>
+    <!-- some other stuff -->
+&lt;/body>
+</pre>
+<h3>example</h3>
+<p>Click the button below and watch website header.</p>
+<div id="box" class="example-box-get">This area will change after 5 seconds</div>
+<div class="btn-group btn-group-horizontal" style="margin-top: 20px;">
+    <a href="#" class="btn" data-jo='{"action":"get","target":"#div3","url":"/examples/long"}'>Click me!</a>
+</div>
