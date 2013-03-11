@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("Datajo")]
-[assembly: AssemblyDescription("jQuery based, unobtrusive JavaScript actions")]
+[assembly: AssemblyDescription("jQuery based, declarative JavaScript actions")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ByteCarrot")]
 [assembly: AssemblyProduct("Datajo")]

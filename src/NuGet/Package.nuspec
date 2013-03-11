@@ -5,7 +5,7 @@
     <version>0.1.0.0</version>
     <title>Datajo</title>
     <authors>ByteCarrot</authors>
-    <description>Datajo - jQuery based, unobtrusive JavaScript actions</description>
+    <description>Datajo - jQuery based, declarative JavaScript actions</description>
     <releaseNotes></releaseNotes>
     <summary></summary>
     <projectUrl>http://datajo.net</projectUrl>
@@ -17,7 +17,7 @@
     </dependencies>
     <references></references>
     <frameworkAssemblies></frameworkAssemblies>
-    <tags>javascript json html unobtrusive</tags>
+    <tags>javascript json html</tags>
   </metadata>
   <files>
     <file src="lib\**" target="lib" />
