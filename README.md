@@ -1,4 +1,1 @@
-Datajo
-======
-
-jQuery based, unobtrusive JavaScript actions
+More details here: http://datajo.net
