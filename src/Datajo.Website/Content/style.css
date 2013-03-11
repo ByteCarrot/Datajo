@@ -1,11 +1,10 @@
 ﻿body {
-  font-family: Century Gothic, sans-serif;
-  padding-top: 70px;
+  padding-top: 15px;
   padding-bottom: 40px;
 }
 h2 i,
 h3 i {
-  color: #f00;
+  color: #9e6ab8;
   font-style: normal;
 }
 .example-box {
@@ -25,9 +24,6 @@ h3 i {
   margin: 3px;
   padding: 10px;
   border: solid 1px #00f;
-}
-.navbar img.brand {
-  padding: 6px 20px 5px 30px;
 }
 .nav-list > li > a {
   padding-left: 25px;
