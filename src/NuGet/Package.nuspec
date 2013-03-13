@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Datajo</id>
-    <version>0.1.0.0</version>
+    <version>0.1.2.0</version>
     <title>Datajo</title>
     <authors>ByteCarrot</authors>
     <description>Datajo - jQuery based, declarative JavaScript actions</description>

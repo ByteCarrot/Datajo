@@ -400,13 +400,14 @@ module Datajo {
 
         private onevent(event: any) {
             event.preventDefault();
-            if (event.target.datajo === undefined) {
-                return;
+            var t = event.target;
+            while (t.datajo === undefined) {
+                t = $(t).parent().get(0);
             }
 
-            var data = event.target.datajo[event.type];
+            var data = t.datajo[event.type];
             for (var i in data) {
-                (<ActionHandler>this.handlers[data[i].action]).execute(<Element>event.target, data[i]);
+                (<ActionHandler>this.handlers[data[i].action]).execute(<Element>t, data[i]);
             }
         }
     };
